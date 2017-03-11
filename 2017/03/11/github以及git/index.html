@@ -1,0 +1,853 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="什么是Git？
+Git源代码管理工具
+版本控制工具 
+在一个项目中，凡是由开发系统编写的都是源代码
+让源代码可以被追溯，主要记录了每次变更了什么，谁主导这次的变化体现了一种开源文化
+
+什么是GitHub？GitHub官网
+
+git提供商
+社交化编程
+便于协同合作，同步本地的代码仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub以及Git">
+<meta property="og:url" content="https://mingmliang.github.io/2017/03/11/github以及git/index.html">
+<meta property="og:site_name" content="小白记事本">
+<meta property="og:description" content="什么是Git？
+Git源代码管理工具
+版本控制工具 
+在一个项目中，凡是由开发系统编写的都是源代码
+让源代码可以被追溯，主要记录了每次变更了什么，谁主导这次的变化体现了一种开源文化
+
+什么是GitHub？GitHub官网
+
+git提供商
+社交化编程
+便于协同合作，同步本地的代码仓库">
+<meta property="og:updated_time" content="2017-03-10T16:55:38.829Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub以及Git">
+<meta name="twitter:description" content="什么是Git？
+Git源代码管理工具
+版本控制工具 
+在一个项目中，凡是由开发系统编写的都是源代码
+让源代码可以被追溯，主要记录了每次变更了什么，谁主导这次的变化体现了一种开源文化
+
+什么是GitHub？GitHub官网
+
+git提供商
+社交化编程
+便于协同合作，同步本地的代码仓库">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mingmliang.github.io/2017/03/11/github以及git/"/>
+
+
+
+
+
+  <title> GitHub以及Git | 小白记事本 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小白记事本</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/github以及git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                GitHub以及Git
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
+                2017-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/11/github以及git/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/github以及git/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是Git？"><a href="#什么是Git？" class="headerlink" title="什么是Git？"></a>什么是Git？</h2><ul>
+<li>Git源代码管理工具</li>
+<li>版本控制工具 </li>
+<li>在一个项目中，凡是由开发系统编写的都是源代码</li>
+<li>让源代码可以被追溯，主要记录了每次变更了什么，谁主导这次的变化<br>体现了一种开源文化</li>
+</ul>
+<h2 id="什么是GitHub？"><a href="#什么是GitHub？" class="headerlink" title="什么是GitHub？"></a>什么是GitHub？</h2><p><a href="https://github.com/" target="_blank" rel="external">GitHub官网</a></p>
+<ul>
+<li>git提供商</li>
+<li>社交化编程</li>
+<li>便于协同合作，同步本地的代码仓库<a id="more"></a>
+</li>
+</ul>
+<h2 id="在GitHub官网上新建一个仓库"><a href="#在GitHub官网上新建一个仓库" class="headerlink" title="在GitHub官网上新建一个仓库"></a>在<a href="https://github.com/" target="_blank" rel="external">GitHub官网</a>上新建一个仓库</h2><ul>
+<li>点击New repository按钮</li>
+<li>记录版本号commit为 7dfe51a527b885aefea55261e752827b6e4a0e84<h3 id="注意：给sublime-text安装-Git-gutter（用于提示Git变更内容）"><a href="#注意：给sublime-text安装-Git-gutter（用于提示Git变更内容）" class="headerlink" title="注意：给sublime text安装 Git gutter（用于提示Git变更内容）"></a>注意：给sublime text安装 Git gutter（用于提示Git变更内容）</h3></li>
+</ul>
+<h2 id="PortableGit安装、配置（Git命令行工具）"><a href="#PortableGit安装、配置（Git命令行工具）" class="headerlink" title="PortableGit安装、配置（Git命令行工具）"></a>PortableGit安装、配置（Git命令行工具）</h2><ul>
+<li>双击PortableGit.exe，解压git文件到（E:\Git）</li>
+<li>打开系统环境变量，在用户变量中，添加GIT_HOME变量，值为解压路（E:\Git）</li>
+<li>把E:\Git中的bin目录加入path变量里，即在path变量里加上%GIT_HOME%\bin;</li>
+<li>测试是否配置成功，打开cmd命令行，输入git –version<br>输出类似于git version 2.12.0.windows.1，则配置成功</li>
+</ul>
+<h2 id="SourceTreeSetup-1-4-1"><a href="#SourceTreeSetup-1-4-1" class="headerlink" title="SourceTreeSetup_1.4.1"></a>SourceTreeSetup_1.4.1</h2><ul>
+<li>git图形化界面</li>
+<li>基于Git命令行的客户端软件</li>
+</ul>
+<h2 id="如何使用Git实现项目管理"><a href="#如何使用Git实现项目管理" class="headerlink" title="如何使用Git实现项目管理"></a>如何使用Git实现项目管理</h2><p>注意：不需要服务器。<br>具体使用方法如下：</p>
+<ul>
+<li>在项目文件夹下，打开命令行（shift+右键-选择在此处打开命令行）</li>
+<li>输入命令git init   初始化一个本地仓库（在项目文件夹下，添加了一个.git文件夹，用于记录项目的所有变更信息）</li>
+<li><p>查看本地仓储的状态 默认情况下，是没有跟踪文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status 或者git status -s</div></pre></td></tr></table></figure>
+</li>
+<li><p>跟踪当前目录的所有文件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add . 或者 git add --all</div></pre></td></tr></table></figure>
+</li>
+<li><p>指定跟踪哪个文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add + 文件名</div></pre></td></tr></table></figure>
+</li>
+<li><p>需要指定的文件太多的时候，可以建立忽略清单（注意：最好在建立git之前，写好忽略清单，因为.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的）<br> 1.在项目文件夹下建立一个.gitignore文件（用于说明忽略的文件有哪些）注意：用sublime text编辑器建</p>
+<p>​2.在.gitignore文件里，写上忽略的文件名 </p>
+<p>​3.也可以写.js  *.      /dist表示根目录下的dist</p>
+</li>
+<li><p>取消跟踪</p>
+<p> git rm –cached readme1.txt    删除readme1.txt的跟踪，并保留在本地。<br> git rm –f readme1.txt    删除readme1.txt的跟踪，并且删除本地文件。<br> git rm -r –cached . 删除所有跟踪文件，并保留在本地。</p>
+</li>
+<li><p>提交当前的变更状况到本地仓库文件夹（归档）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m + &apos;版本说明&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>git diff 查看变更情况</p>
+</li>
+<li>git log 查看提交日志</li>
+<li>git reset –hard  + ‘上一个版本号的前六位’  强制将当前文件改为上一个提交的版本 </li>
+</ul>
+<h2 id="如何利用GitHub把本地文件同步到远端"><a href="#如何利用GitHub把本地文件同步到远端" class="headerlink" title="如何利用GitHub把本地文件同步到远端"></a>如何利用GitHub把本地文件同步到远端</h2><ul>
+<li>在GitHub网页上创建一个新的仓库</li>
+<li>复制仓库连接</li>
+<li>回到本地项目目录下，shift+右键，打开Git Bash</li>
+<li><p>在Git Bash上，执行以下代码，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin + &apos;github 仓库连接&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看远端地址命令，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote </div><div class="line">git remote -v</div></pre></td></tr></table></figure>
+</li>
+<li><p>git status</p>
+</li>
+<li><p>将本地文件上传到远端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push  origin master</div></pre></td></tr></table></figure>
+<p>master指的是master分支的意思。<br>注意：如果本地没有README.md文件，回到是同步失败。<br>因此，需要先使用一下命令进行代码合并</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase origin master</div></pre></td></tr></table></figure>
+<h2 id="拉回远端文件"><a href="#拉回远端文件" class="headerlink" title="拉回远端文件"></a>拉回远端文件</h2><p>在Git Bash上，执行以下代码,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin master</div></pre></td></tr></table></figure></p>
+<h2 id="什么是分支？"><a href="#什么是分支？" class="headerlink" title="什么是分支？"></a>什么是分支？</h2><ul>
+<li>在项目目录下，打开命令行</li>
+<li>查看分支  git branch</li>
+<li>新建v2分支  git branch v2</li>
+<li>切换到v2分支  git checkout v2     (切换前会自动回到，之前分支的最后一次的提交状态)</li>
+<li>提交v2分支到远端 git push -u origin v2</li>
+</ul>
+<h2 id="将页面托管到GitHub上"><a href="#将页面托管到GitHub上" class="headerlink" title="将页面托管到GitHub上"></a>将页面托管到GitHub上</h2><ul>
+<li>在项目目录下打开，Git Bash</li>
+<li>git init</li>
+<li>git status</li>
+<li>git add .</li>
+<li>git status</li>
+<li>git commit -m  ‘第一次提交到本地’</li>
+<li>在GitHub上创建一个新仓库，连接为<a href="https://github.com/mingmLiang/aboutMyselft.git" target="_blank" rel="external">https://github.com/mingmLiang/aboutMyselft.git</a></li>
+<li>与GitHub建立连接git remote add origin <a href="https://github.com/mingmLiang/aboutMyselft.git" target="_blank" rel="external">https://github.com/mingmLiang/aboutMyselft.git</a></li>
+<li>git pull –rebase origin master    同步README.cm文件到本地</li>
+<li>git push -u origin master  </li>
+<li>git branch gh-pages  创建gh-pages分支，注意分支的名字是固定的</li>
+<li>git checkout gh-pages  切换到gh-pages分支</li>
+<li>git push -u origin gh-pages 将gh-pages分支同步到远端</li>
+<li>通过链接就可以访问了 <a href="https://mingmliang.github.io/aboutMyselft/">https://mingmliang.github.io/aboutMyselft/</a><br>（   GitHub的用户名.github.io/项目名/  ）</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/pay/WeChat.png" alt="mingming WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/pay/pay.png" alt="mingming Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/11/bootstrap难点/" rel="next" title="bootstrap进阶篇">
+                <i class="fa fa-chevron-left"></i> bootstrap进阶篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/11/js调试工具Console命令详解/" rel="prev" title="js调试工具Console命令详解">
+                js调试工具Console命令详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/11/github以及git/"
+           data-title="GitHub以及Git" data-url="https://mingmliang.github.io/2017/03/11/github以及git/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="mingming" />
+          <p class="site-author-name" itemprop="name">mingming</p>
+           
+              <p class="site-description motion-element" itemprop="description">梦想着飞翔！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Git？"><span class="nav-number">1.</span> <span class="nav-text">什么是Git？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是GitHub？"><span class="nav-number">2.</span> <span class="nav-text">什么是GitHub？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在GitHub官网上新建一个仓库"><span class="nav-number">3.</span> <span class="nav-text">在GitHub官网上新建一个仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：给sublime-text安装-Git-gutter（用于提示Git变更内容）"><span class="nav-number">3.1.</span> <span class="nav-text">注意：给sublime text安装 Git gutter（用于提示Git变更内容）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PortableGit安装、配置（Git命令行工具）"><span class="nav-number">4.</span> <span class="nav-text">PortableGit安装、配置（Git命令行工具）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SourceTreeSetup-1-4-1"><span class="nav-number">5.</span> <span class="nav-text">SourceTreeSetup_1.4.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Git实现项目管理"><span class="nav-number">6.</span> <span class="nav-text">如何使用Git实现项目管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何利用GitHub把本地文件同步到远端"><span class="nav-number">7.</span> <span class="nav-text">如何利用GitHub把本地文件同步到远端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉回远端文件"><span class="nav-number">8.</span> <span class="nav-text">拉回远端文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是分支？"><span class="nav-number">9.</span> <span class="nav-text">什么是分支？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将页面托管到GitHub上"><span class="nav-number">10.</span> <span class="nav-text">将页面托管到GitHub上</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mingming</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mingmingblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
