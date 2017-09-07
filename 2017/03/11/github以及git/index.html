@@ -113,7 +113,7 @@ Git源代码管理工具
 git提供商
 社交化编程
 便于协同合作，同步本地的代码仓库">
-<meta property="og:updated_time" content="2017-03-10T16:55:38.829Z">
+<meta property="og:updated_time" content="2017-07-11T10:25:40.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub以及Git">
 <meta name="twitter:description" content="什么是Git？
@@ -427,17 +427,20 @@ git提供商
 <ul>
 <li>git提供商</li>
 <li>社交化编程</li>
-<li>便于协同合作，同步本地的代码仓库<a id="more"></a>
+<li><p>便于协同合作，同步本地的代码仓库</p>
+<a id="more"></a>
 </li>
 </ul>
 <h2 id="在GitHub官网上新建一个仓库"><a href="#在GitHub官网上新建一个仓库" class="headerlink" title="在GitHub官网上新建一个仓库"></a>在<a href="https://github.com/" target="_blank" rel="external">GitHub官网</a>上新建一个仓库</h2><ul>
 <li>点击New repository按钮</li>
 <li>记录版本号commit为 7dfe51a527b885aefea55261e752827b6e4a0e84<h3 id="注意：给sublime-text安装-Git-gutter（用于提示Git变更内容）"><a href="#注意：给sublime-text安装-Git-gutter（用于提示Git变更内容）" class="headerlink" title="注意：给sublime text安装 Git gutter（用于提示Git变更内容）"></a>注意：给sublime text安装 Git gutter（用于提示Git变更内容）</h3></li>
 </ul>
-<h2 id="PortableGit安装、配置（Git命令行工具）"><a href="#PortableGit安装、配置（Git命令行工具）" class="headerlink" title="PortableGit安装、配置（Git命令行工具）"></a>PortableGit安装、配置（Git命令行工具）</h2><ul>
-<li>双击PortableGit.exe，解压git文件到（E:\Git）</li>
-<li>打开系统环境变量，在用户变量中，添加GIT_HOME变量，值为解压路（E:\Git）</li>
-<li>把E:\Git中的bin目录加入path变量里，即在path变量里加上%GIT_HOME%\bin;</li>
+<h2 id="Git安装、配置（Git命令行工具）"><a href="#Git安装、配置（Git命令行工具）" class="headerlink" title="Git安装、配置（Git命令行工具）"></a>Git安装、配置（Git命令行工具）</h2><ul>
+<li>首先安装git，到<a href="https://git-scm.com/downloads" target="_blank" rel="external">git官网</a>下载</li>
+<li>双击git安装包，安装git，记录路径为（D:\Git）。</li>
+<li>打开环境编辑页面</li>
+<li>在系统变量中，添加GIT_HOME变量，值为D:\Git;</li>
+<li>在系统变量中，找到path变量，添加%GIT_HOME%\bin;</li>
 <li>测试是否配置成功，打开cmd命令行，输入git –version<br>输出类似于git version 2.12.0.windows.1，则配置成功</li>
 </ul>
 <h2 id="SourceTreeSetup-1-4-1"><a href="#SourceTreeSetup-1-4-1" class="headerlink" title="SourceTreeSetup_1.4.1"></a>SourceTreeSetup_1.4.1</h2><ul>
@@ -446,7 +449,7 @@ git提供商
 </ul>
 <h2 id="如何使用Git实现项目管理"><a href="#如何使用Git实现项目管理" class="headerlink" title="如何使用Git实现项目管理"></a>如何使用Git实现项目管理</h2><p>注意：不需要服务器。<br>具体使用方法如下：</p>
 <ul>
-<li>在项目文件夹下，打开命令行（shift+右键-选择在此处打开命令行）</li>
+<li>在项目文件夹下，打开Git Bash Here（鼠标右键-选择Git Bash Here）</li>
 <li>输入命令git init   初始化一个本地仓库（在项目文件夹下，添加了一个.git文件夹，用于记录项目的所有变更信息）</li>
 <li><p>查看本地仓储的状态 默认情况下，是没有跟踪文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status 或者git status -s</div></pre></td></tr></table></figure>
@@ -465,17 +468,21 @@ git提供商
 <p> git rm –cached readme1.txt    删除readme1.txt的跟踪，并保留在本地。<br> git rm –f readme1.txt    删除readme1.txt的跟踪，并且删除本地文件。<br> git rm -r –cached . 删除所有跟踪文件，并保留在本地。</p>
 </li>
 <li><p>提交当前的变更状况到本地仓库文件夹（归档）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m + &apos;版本说明&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">注意：提交之前要添加追踪文件  git add .</div><div class="line">git commit -m + &apos;版本说明&apos;</div></pre></td></tr></table></figure>
 </li>
 <li><p>git diff 查看变更情况</p>
 </li>
-<li>git log 查看提交日志</li>
-<li>git reset –hard  + ‘上一个版本号的前六位’  强制将当前文件改为上一个提交的版本 </li>
+<li><p>git log 查看提交日志（查看版本号）</p>
+</li>
+<li><p>强制回退到之前的版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">git reset + &apos;版本号&apos;    (也有别的参数)</div><div class="line"></div><div class="line">git reset --hard +&apos;版本号&apos;</div><div class="line">彻底回退到某个版本，本地的源码也会变为上一个版本的内容</div><div class="line"></div><div class="line">git reset --mixed  +&apos;版本号&apos;</div><div class="line">此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息</div><div class="line"></div><div class="line">git reset --soft  +&apos;版本号&apos;</div><div class="line">回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</div><div class="line"></div><div class="line">git reset [-q] [&lt;tree-ish&gt;] [--] &lt;paths&gt;…</div><div class="line">git reset (--patch | -p) [&lt;tree-ish&gt;] [--] [&lt;paths&gt;…]</div><div class="line">git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</div></pre></td></tr></table></figure>
+</li>
 </ul>
+<h2 id="本地项目管理实例"><a href="#本地项目管理实例" class="headerlink" title="本地项目管理实例"></a>本地项目管理实例</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div></pre></td><td class="code"><pre><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1</div><div class="line">$ git init</div><div class="line">Initialized empty Git repository in E:/mywork/me1/.git/</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git add .</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git status</div><div class="line">On branch master</div><div class="line"></div><div class="line">Initial commit</div><div class="line"></div><div class="line">Changes to be committed:</div><div class="line">  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</div><div class="line"></div><div class="line">        new file:   README.md</div><div class="line">        new file:   images/background.jpg</div><div class="line">        new file:   images/btBg.png</div><div class="line">        new file:   images/bulid.jpg</div><div class="line">        new file:   images/close.png</div><div class="line">        new file:   images/icon/logoIcon.ico</div><div class="line">        new file:   images/logoIcon.ico</div><div class="line">        new file:   images/mm.jpg</div><div class="line">        new file:   images/pic.jpg</div><div class="line">        new file:   images/shar.jpg</div><div class="line">        new file:   index.html</div><div class="line">        new file:   jQuery-share/.idea/jQuery-share.iml</div><div class="line">        new file:   jQuery-share/.idea/modules.xml</div><div class="line">        new file:   jQuery-share/.idea/workspace.xml</div><div class="line">        new file:   jQuery-share/ZeroClipboard.js</div><div class="line">        new file:   jQuery-share/ZeroClipboard.swf</div><div class="line">        new file:   jQuery-share/css-bg.png</div><div class="line">        new file:   jQuery-share/dialog-close.png</div><div class="line">        new file:   jQuery-share/jquery-1.11.1.min.js</div><div class="line">        new file:   jQuery-share/share.css</div><div class="line">        new file:   js/main.js</div><div class="line">        new file:   resource.html</div><div class="line">        new file:   style/main.css</div><div class="line">        new file:   style/reset.css</div><div class="line">        new file:   way.html</div><div class="line"></div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git commit -m &apos;第一次提交&apos;</div><div class="line">[master (root-commit) 758d52a] 第一次提交</div><div class="line"> 25 files changed, 1556 insertions(+)</div><div class="line"> create mode 100644 README.md</div><div class="line"> create mode 100644 images/background.jpg</div><div class="line"> create mode 100644 images/btBg.png</div><div class="line"> create mode 100644 images/bulid.jpg</div><div class="line"> create mode 100644 images/close.png</div><div class="line"> create mode 100644 images/icon/logoIcon.ico</div><div class="line"> create mode 100644 images/logoIcon.ico</div><div class="line"> create mode 100644 images/mm.jpg</div><div class="line"> create mode 100644 images/pic.jpg</div><div class="line"> create mode 100644 images/shar.jpg</div><div class="line"> create mode 100644 index.html</div><div class="line"> create mode 100644 jQuery-share/.idea/jQuery-share.iml</div><div class="line"> create mode 100644 jQuery-share/.idea/modules.xml</div><div class="line"> create mode 100644 jQuery-share/.idea/workspace.xml</div><div class="line"> create mode 100644 jQuery-share/ZeroClipboard.js</div><div class="line"> create mode 100644 jQuery-share/ZeroClipboard.swf</div><div class="line"> create mode 100644 jQuery-share/css-bg.png</div><div class="line"> create mode 100644 jQuery-share/dialog-close.png</div><div class="line"> create mode 100644 jQuery-share/jquery-1.11.1.min.js</div><div class="line"> create mode 100644 jQuery-share/share.css</div><div class="line"> create mode 100644 js/main.js</div><div class="line"> create mode 100644 resource.html</div><div class="line"> create mode 100644 style/main.css</div><div class="line"> create mode 100644 style/reset.css</div><div class="line"> create mode 100644 way.html</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git add .</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git commit -m &apos;第二次提交&apos;</div><div class="line">On branch master</div><div class="line">Changes not staged for commit:</div><div class="line">        modified:   index.html</div><div class="line"></div><div class="line">no changes added to commit</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git add .</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git commit -m &apos;第二次提交&apos;</div><div class="line">[master 245a34a] 第二次提交</div><div class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git log</div><div class="line">commit 245a34a89d8d6947d0290c3d2cb725f92a9dc2c3</div><div class="line">Author: mingming &lt;2324607198@qq.com&gt;</div><div class="line">Date:   Fri May 5 00:20:30 2017 +0800</div><div class="line"></div><div class="line">    第二次提交</div><div class="line"></div><div class="line">commit 758d52aff3d53159c4c8148cb12e3f3793a4dfc2</div><div class="line">Author: mingming &lt;2324607198@qq.com&gt;</div><div class="line">Date:   Fri May 5 00:19:48 2017 +0800</div><div class="line"></div><div class="line">    第一次提交</div><div class="line"></div><div class="line">mingming@DESKTOP-2V5JKDR MINGW64 /e/mywork/me1 (master)</div><div class="line">$ git reset --hard 758d52aff3d53159c4c8148cb12e3f3793a4dfc2</div><div class="line">HEAD is now at 758d52a 第一次提交</div></pre></td></tr></table></figure>
 <h2 id="如何利用GitHub把本地文件同步到远端"><a href="#如何利用GitHub把本地文件同步到远端" class="headerlink" title="如何利用GitHub把本地文件同步到远端"></a>如何利用GitHub把本地文件同步到远端</h2><ul>
 <li>在GitHub网页上创建一个新的仓库</li>
 <li>复制仓库连接</li>
-<li>回到本地项目目录下，shift+右键，打开Git Bash</li>
+<li>回到本地项目目录，打开Git Bash</li>
 <li><p>在Git Bash上，执行以下代码，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin + &apos;github 仓库连接&apos;</div></pre></td></tr></table></figure>
 </li>
@@ -484,12 +491,17 @@ git提供商
 </li>
 <li><p>git status</p>
 </li>
-<li><p>将本地文件上传到远端</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push  origin master</div></pre></td></tr></table></figure>
-<p>master指的是master分支的意思。<br>注意：如果本地没有README.md文件，回到是同步失败。<br>因此，需要先使用一下命令进行代码合并</p>
+<li>首先用git fetch返回服务器上的代码</li>
+<li>用git rebase origin/master 合并</li>
+<li>如果发生冲突了会提示， 然后可以使用git diff查看冲突， 在手工改掉冲突， 在用git add ‘文件名’ 添加修改后文件，最后用git rebase –continue继续没完成的合并</li>
+<li>最后将本地文件上传到远端<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push  origin master</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase origin master</div></pre></td></tr></table></figure>
+<p>如果想更改设置，可以使用git config命令。git config –global push.default matching OR git config –global push.default simple；可以使用git config -l 查看配置</p>
+<p>如果当前分支与多个主机存在追踪关系，则可以使用 -u 参数指定一个默认主机，这样后面就可以不加任何参数使用git push。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>不带任何参数的git push，默认只推送当前分支，这叫做simple方式，还有一种matching方式，会推送所有有对应的远程分支的本地分支， Git 2.0之前默认使用matching，现在改为simple方式。</p>
+<p> master指的是master分支的意思。</p>
 <h2 id="拉回远端文件"><a href="#拉回远端文件" class="headerlink" title="拉回远端文件"></a>拉回远端文件</h2><p>在Git Bash上，执行以下代码,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin master</div></pre></td></tr></table></figure></p>
 <h2 id="什么是分支？"><a href="#什么是分支？" class="headerlink" title="什么是分支？"></a>什么是分支？</h2><ul>
 <li>在项目目录下，打开命令行</li>
@@ -498,7 +510,7 @@ git提供商
 <li>切换到v2分支  git checkout v2     (切换前会自动回到，之前分支的最后一次的提交状态)</li>
 <li>提交v2分支到远端 git push -u origin v2</li>
 </ul>
-<h2 id="将页面托管到GitHub上"><a href="#将页面托管到GitHub上" class="headerlink" title="将页面托管到GitHub上"></a>将页面托管到GitHub上</h2><ul>
+<h2 id="将页面托管到GitHub上"><a href="#将页面托管到GitHub上" class="headerlink" title="将页面托管到GitHub上"></a>将页面托管到GitHub上</h2><h3 id="方法一（利用git）"><a href="#方法一（利用git）" class="headerlink" title="方法一（利用git）"></a>方法一（利用git）</h3><ul>
 <li>在项目目录下打开，Git Bash</li>
 <li>git init</li>
 <li>git status</li>
@@ -507,12 +519,30 @@ git提供商
 <li>git commit -m  ‘第一次提交到本地’</li>
 <li>在GitHub上创建一个新仓库，连接为<a href="https://github.com/mingmLiang/aboutMyselft.git" target="_blank" rel="external">https://github.com/mingmLiang/aboutMyselft.git</a></li>
 <li>与GitHub建立连接git remote add origin <a href="https://github.com/mingmLiang/aboutMyselft.git" target="_blank" rel="external">https://github.com/mingmLiang/aboutMyselft.git</a></li>
-<li>git pull –rebase origin master    同步README.cm文件到本地</li>
-<li>git push -u origin master  </li>
-<li>git branch gh-pages  创建gh-pages分支，注意分支的名字是固定的</li>
-<li>git checkout gh-pages  切换到gh-pages分支</li>
-<li>git push -u origin gh-pages 将gh-pages分支同步到远端</li>
-<li>通过链接就可以访问了 <a href="https://mingmliang.github.io/aboutMyselft/">https://mingmliang.github.io/aboutMyselft/</a><br>（   GitHub的用户名.github.io/项目名/  ）</li>
+<li>同步README.cm文件到本地</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase origin master</div></pre></td></tr></table></figure>
+<ul>
+<li><p>git push -u origin master  </p>
+</li>
+<li><p>git branch gh-pages  创建gh-pages分支，注意分支的名字是固定的</p>
+</li>
+<li><p>git checkout gh-pages  切换到gh-pages分支</p>
+</li>
+<li><p>git push -u origin gh-pages 将gh-pages分支同步到远端</p>
+</li>
+<li><p>通过链接就可以访问了 <a href="https://mingmliang.github.io/aboutMyselft/">https://mingmliang.github.io/aboutMyselft/</a><br>（   GitHub的用户名.github.io/项目名/  ）</p>
+</li>
+</ul>
+<h3 id="方法二（网页版）"><a href="#方法二（网页版）" class="headerlink" title="方法二（网页版）"></a>方法二（网页版）</h3><ul>
+<li><p>点击头像——your profile – Repositories – new – Repository name（存储库、项目名）– 勾上Initialize  README</p>
+</li>
+<li><p>点击Upload files，把需要上传的文件拖动到上传区域，然后提交</p>
+</li>
+<li><p>回到项目主页–点击setting–找到github pages（source）–选择master branch –save </p>
+</li>
+<li><p>再次找到github pages，下面多一个地址，直接复制地址打开即可。</p>
+</li>
 </ul>
 
       
@@ -679,7 +709,7 @@ git提供商
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -690,7 +720,7 @@ git提供商
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -796,7 +826,7 @@ git提供商
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Git？"><span class="nav-number">1.</span> <span class="nav-text">什么是Git？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是GitHub？"><span class="nav-number">2.</span> <span class="nav-text">什么是GitHub？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在GitHub官网上新建一个仓库"><span class="nav-number">3.</span> <span class="nav-text">在GitHub官网上新建一个仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：给sublime-text安装-Git-gutter（用于提示Git变更内容）"><span class="nav-number">3.1.</span> <span class="nav-text">注意：给sublime text安装 Git gutter（用于提示Git变更内容）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PortableGit安装、配置（Git命令行工具）"><span class="nav-number">4.</span> <span class="nav-text">PortableGit安装、配置（Git命令行工具）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SourceTreeSetup-1-4-1"><span class="nav-number">5.</span> <span class="nav-text">SourceTreeSetup_1.4.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Git实现项目管理"><span class="nav-number">6.</span> <span class="nav-text">如何使用Git实现项目管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何利用GitHub把本地文件同步到远端"><span class="nav-number">7.</span> <span class="nav-text">如何利用GitHub把本地文件同步到远端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉回远端文件"><span class="nav-number">8.</span> <span class="nav-text">拉回远端文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是分支？"><span class="nav-number">9.</span> <span class="nav-text">什么是分支？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将页面托管到GitHub上"><span class="nav-number">10.</span> <span class="nav-text">将页面托管到GitHub上</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Git？"><span class="nav-number">1.</span> <span class="nav-text">什么是Git？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是GitHub？"><span class="nav-number">2.</span> <span class="nav-text">什么是GitHub？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在GitHub官网上新建一个仓库"><span class="nav-number">3.</span> <span class="nav-text">在GitHub官网上新建一个仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：给sublime-text安装-Git-gutter（用于提示Git变更内容）"><span class="nav-number">3.1.</span> <span class="nav-text">注意：给sublime text安装 Git gutter（用于提示Git变更内容）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git安装、配置（Git命令行工具）"><span class="nav-number">4.</span> <span class="nav-text">Git安装、配置（Git命令行工具）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SourceTreeSetup-1-4-1"><span class="nav-number">5.</span> <span class="nav-text">SourceTreeSetup_1.4.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Git实现项目管理"><span class="nav-number">6.</span> <span class="nav-text">如何使用Git实现项目管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地项目管理实例"><span class="nav-number">7.</span> <span class="nav-text">本地项目管理实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何利用GitHub把本地文件同步到远端"><span class="nav-number">8.</span> <span class="nav-text">如何利用GitHub把本地文件同步到远端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉回远端文件"><span class="nav-number">9.</span> <span class="nav-text">拉回远端文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是分支？"><span class="nav-number">10.</span> <span class="nav-text">什么是分支？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将页面托管到GitHub上"><span class="nav-number">11.</span> <span class="nav-text">将页面托管到GitHub上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一（利用git）"><span class="nav-number">11.1.</span> <span class="nav-text">方法一（利用git）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二（网页版）"><span class="nav-number">11.2.</span> <span class="nav-text">方法二（网页版）</span></a></li></ol></li></ol></div>
             
 
           </div>

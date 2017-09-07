@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/实战/">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/09/05/vue组件使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mingming">
@@ -306,8 +306,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/11/实战/" itemprop="url">
-                  实战
+                <a class="post-title-link" href="/2017/09/05/vue组件使用/" itemprop="url">
+                  vue组件的使用
                 </a>
               
             
@@ -323,8 +323,675 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T22:26:37+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/05/vue组件使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/05/vue组件使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="vue组件的使用"><a href="#vue组件的使用" class="headerlink" title="vue组件的使用"></a>vue组件的使用</h2><p>注意：这里说的是在vue项目中使用vue组件</p>
+<h3 id="首先搭建起vue项目"><a href="#首先搭建起vue项目" class="headerlink" title="首先搭建起vue项目"></a>首先搭建起vue项目</h3><ul>
+<li>首先要安装 node.js(推荐使用稳定版本)</li>
+<li><p>打开命令行，安装脚手架(一个快速搭建vue项目的工具)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --global vue-cli</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用脚手架，创建一个基于 webpack 模板的新项目,my-project指的是项目名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue init webpack my-project</div></pre></td></tr></table></figure>
+</li>
+<li><p>进入项目目录，加入依赖。（就是添加node_modules包）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd my-project</div><div class="line">cnpm install</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="vue组件在vue项目中如何简单使用"><a href="#vue组件在vue项目中如何简单使用" class="headerlink" title="vue组件在vue项目中如何简单使用"></a>vue组件在vue项目中如何简单使用</h3><p>下面实现在别的组件，引入组件，并且父组件传参给子组件</p>
+<ul>
+<li>首先在src-components-header.vue中，新建组件start-start.vue</li>
+<li>子组件start.vue的全部代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;star&quot; :class=&quot;starType&quot;&gt;</div><div class="line">    &lt;span v-for=&quot;(itemClass,index) in itemClasses&quot; :class=&quot;itemClass&quot; class=&quot;star-item&quot; key=&quot;index&quot;&gt;&lt;/span&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/ecmascript-6&quot;&gt;</div><div class="line">  const LENGTH = 5;</div><div class="line">  const CLS_ON = &apos;on&apos;;</div><div class="line">  const CLS_HALF = &apos;half&apos;;</div><div class="line">  const CLS_OFF = &apos;off&apos;;</div><div class="line"></div><div class="line">  export default &#123;</div><div class="line">    props: &#123;</div><div class="line">      size: &#123;</div><div class="line">        type: Number</div><div class="line">      &#125;,</div><div class="line">      score: &#123;</div><div class="line">        type: Number</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    computed: &#123;</div><div class="line">      starType() &#123;</div><div class="line">        return &apos;star-&apos; + this.size;</div><div class="line">      &#125;,</div><div class="line">      itemClasses() &#123;</div><div class="line">        let result = [];</div><div class="line">        let score = Math.floor(this.score * 2) / 2;</div><div class="line">        let hasDecimal = score % 1 !== 0;</div><div class="line">        let integer = Math.floor(score);</div><div class="line">        for (let i = 0; i &lt; integer; i++) &#123;</div><div class="line">          result.push(CLS_ON);</div><div class="line">        &#125;</div><div class="line">        if (hasDecimal) &#123;</div><div class="line">          result.push(CLS_HALF);</div><div class="line">        &#125;</div><div class="line">        while (result.length &lt; LENGTH) &#123;</div><div class="line">          result.push(CLS_OFF);</div><div class="line">        &#125;</div><div class="line">        return result;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">  @import &quot;../../common/stylus/mixin.styl&quot;</div><div class="line"></div><div class="line">  .star</div><div class="line">    font-size: 0</div><div class="line">    .star-item</div><div class="line">      display: inline-block</div><div class="line">      background-repeat: no-repeat</div><div class="line">    &amp;.star-48</div><div class="line">      .star-item</div><div class="line">        width: 20px</div><div class="line">        height: 20px</div><div class="line">        margin-right: 22px</div><div class="line">        background-size: 20px 20px</div><div class="line">        &amp;:last-child</div><div class="line">          margin-right: 0</div><div class="line">        &amp;.on</div><div class="line">          bg-image(&apos;star48_on&apos;)</div><div class="line">        &amp;.half</div><div class="line">          bg-image(&apos;star48_half&apos;)</div><div class="line">        &amp;.off</div><div class="line">          bg-image(&apos;star48_off&apos;)</div><div class="line">    &amp;.star-36</div><div class="line">      .star-item</div><div class="line">        width: 15px</div><div class="line">        height: 15px</div><div class="line">        margin-right: 6px</div><div class="line">        background-size: 15px 15px</div><div class="line">        &amp;:last-child</div><div class="line">          margin-right: 0</div><div class="line">        &amp;.on</div><div class="line">          bg-image(&apos;star36_on&apos;)</div><div class="line">        &amp;.half</div><div class="line">          bg-image(&apos;star36_half&apos;)</div><div class="line">        &amp;.off</div><div class="line">          bg-image(&apos;star36_off&apos;)</div><div class="line">    &amp;.star-24</div><div class="line">      .star-item</div><div class="line">        width: 10px</div><div class="line">        height: 10px</div><div class="line">        margin-right: 3px</div><div class="line">        background-size: 10px 10px</div><div class="line">        &amp;:last-child</div><div class="line">          margin-right: 0</div><div class="line">        &amp;.on</div><div class="line">          bg-image(&apos;star24_on&apos;)</div><div class="line">        &amp;.half</div><div class="line">          bg-image(&apos;star24_half&apos;)</div><div class="line">        &amp;.off</div><div class="line">          bg-image(&apos;star24_off&apos;)</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>关键点：接受父组件的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">export default &#123;</div><div class="line">   props: &#123;</div><div class="line">     size: &#123;</div><div class="line">       type: Number</div><div class="line">     &#125;,</div><div class="line">     score: &#123;</div><div class="line">       type: Number</div><div class="line">     &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>在header.vue中，使用组件，并传参数</p>
+<ul>
+<li>父组件header.vue的全部代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;header&quot;&gt;</div><div class="line">    &lt;div class=&quot;content-wrapper&quot;&gt;</div><div class="line">      &lt;div class=&quot;avatar&quot;&gt;</div><div class="line">        &lt;img width=&quot;64&quot; height=&quot;64&quot; :src=&quot;seller.avatar&quot;&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;content&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;</div><div class="line">          &lt;span class=&quot;brand&quot;&gt;&lt;/span&gt;</div><div class="line">          &lt;span class=&quot;name&quot;&gt;&#123;&#123;seller.name&#125;&#125;&lt;/span&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;description&quot;&gt;</div><div class="line">          &#123;&#123;seller.description&#125;&#125;/&#123;&#123;seller.deliveryTime&#125;&#125;分钟送达</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div v-if=&quot;seller.supports&quot; class=&quot;support&quot;&gt;</div><div class="line">          &lt;span class=&quot;icon&quot; :class=&quot;classMap[seller.supports[0].type]&quot;&gt;&lt;/span&gt;</div><div class="line">          &lt;span class=&quot;text&quot;&gt;&#123;&#123;seller.supports[0].description&#125;&#125;&lt;/span&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div v-if=&quot;seller.supports&quot; class=&quot;support-count&quot; @click=&quot;showDetail&quot;&gt;</div><div class="line">        &lt;span class=&quot;count&quot;&gt;&#123;&#123;seller.supports.length&#125;&#125;个&lt;/span&gt;</div><div class="line">        &lt;i class=&quot;icon-keyboard_arrow_right&quot;&gt;&lt;/i&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;bulletin-wrapper&quot; @click=&quot;showDetail&quot;&gt;</div><div class="line">      &lt;span class=&quot;bulletin-title&quot;&gt;&lt;/span&gt;&lt;span class=&quot;bulletin-text&quot;&gt;&#123;&#123;seller.bulletin&#125;&#125;&lt;/span&gt;</div><div class="line">      &lt;i class=&quot;icon-keyboard_arrow_right&quot;&gt;&lt;/i&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;background&quot;&gt;</div><div class="line">      &lt;img :src=&quot;seller.avatar&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;transition name=&quot;fade&quot;&gt;</div><div class="line">      &lt;div v-show=&quot;detailShow&quot; class=&quot;detail&quot;&gt;</div><div class="line">        &lt;div class=&quot;detail-wrapper clearfix&quot;&gt;</div><div class="line">          &lt;div class=&quot;detail-main&quot;&gt;</div><div class="line">            &lt;h1 class=&quot;name&quot;&gt;&#123;&#123;seller.name&#125;&#125;&lt;/h1&gt;</div><div class="line">            &lt;div class=&quot;star-wrapper&quot;&gt;</div><div class="line">              &lt;star :size=&quot;48&quot; :score=&quot;seller.score&quot;&gt;&lt;/star&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div class=&quot;title&quot;&gt;</div><div class="line">              &lt;div class=&quot;line&quot;&gt;&lt;/div&gt;</div><div class="line">              &lt;div class=&quot;text&quot;&gt;优惠信息&lt;/div&gt;</div><div class="line">              &lt;div class=&quot;line&quot;&gt;&lt;/div&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;ul v-if=&quot;seller.supports&quot; class=&quot;supports&quot;&gt;</div><div class="line">              &lt;li class=&quot;support-item&quot; v-for=&quot;(item,index) in seller.supports&quot;&gt;</div><div class="line">                &lt;span class=&quot;icon&quot; :class=&quot;classMap[seller.supports[index].type]&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;text&quot;&gt;&#123;&#123;seller.supports[index].description&#125;&#125;&lt;/span&gt;</div><div class="line">              &lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">            &lt;div class=&quot;title&quot;&gt;</div><div class="line">              &lt;div class=&quot;line&quot;&gt;&lt;/div&gt;</div><div class="line">              &lt;div class=&quot;text&quot;&gt;商家公告&lt;/div&gt;</div><div class="line">              &lt;div class=&quot;line&quot;&gt;&lt;/div&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div class=&quot;bulletin&quot;&gt;</div><div class="line">              &lt;p class=&quot;content&quot;&gt;&#123;&#123;seller.bulletin&#125;&#125;&lt;/p&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">          &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;detail-close&quot; @click=&quot;hideDetail&quot;&gt;</div><div class="line">          &lt;i class=&quot;icon-close&quot;&gt;&lt;/i&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/transition&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/ecmascript-6&quot;&gt;</div><div class="line">  import star from &apos;components/star/star&apos;;</div><div class="line"></div><div class="line">  export default &#123;</div><div class="line">    props: &#123;</div><div class="line">      seller: &#123;</div><div class="line">        type: Object</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    data() &#123;</div><div class="line">      return &#123;</div><div class="line">        detailShow: false</div><div class="line">      &#125;;</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">      showDetail() &#123;</div><div class="line">        this.detailShow = true;</div><div class="line">      &#125;,</div><div class="line">      hideDetail() &#123;</div><div class="line">        this.detailShow = false;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    created() &#123;</div><div class="line">      this.classMap = [&apos;decrease&apos;, &apos;discount&apos;, &apos;special&apos;, &apos;invoice&apos;, &apos;guarantee&apos;];</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">      star</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">  @import &quot;../../common/stylus/mixin&quot;;</div><div class="line"></div><div class="line">  .header</div><div class="line">    position: relative</div><div class="line">    overflow: hidden</div><div class="line">    color: #fff</div><div class="line">    background: rgba(7, 17, 27, 0.5)</div><div class="line">    .content-wrapper</div><div class="line">      position: relative</div><div class="line">      padding: 24px 12px 18px 24px</div><div class="line">      font-size: 0</div><div class="line">      .avatar</div><div class="line">        display: inline-block</div><div class="line">        vertical-align: top</div><div class="line">        img</div><div class="line">          border-radius: 2px</div><div class="line">      .content</div><div class="line">        display: inline-block</div><div class="line">        margin-left: 16px</div><div class="line">        .title</div><div class="line">          margin: 2px 0 8px 0</div><div class="line">          .brand</div><div class="line">            display: inline-block</div><div class="line">            vertical-align: top</div><div class="line">            width: 30px</div><div class="line">            height: 18px</div><div class="line">            bg-image(&apos;brand&apos;)</div><div class="line">            background-size: 30px 18px</div><div class="line">            background-repeat: no-repeat</div><div class="line">          .name</div><div class="line">            margin-left: 6px</div><div class="line">            font-size: 16px</div><div class="line">            line-height: 18px</div><div class="line">            font-weight: bold</div><div class="line"></div><div class="line">        .description</div><div class="line">          margin-bottom: 10px</div><div class="line">          line-height: 12px</div><div class="line">          font-size: 12px</div><div class="line">        .support</div><div class="line">          .icon</div><div class="line">            display: inline-block</div><div class="line">            vertical-align: top</div><div class="line">            width: 12px</div><div class="line">            height: 12px</div><div class="line">            margin-right: 4px</div><div class="line">            background-size: 12px 12px</div><div class="line">            background-repeat: no-repeat</div><div class="line">            &amp;.decrease</div><div class="line">              bg-image(&apos;decrease_1&apos;)</div><div class="line">            &amp;.discount</div><div class="line">              bg-image(&apos;discount_1&apos;)</div><div class="line">            &amp;.guarantee</div><div class="line">              bg-image(&apos;guarantee_1&apos;)</div><div class="line">            &amp;.invoice</div><div class="line">              bg-image(&apos;invoice_1&apos;)</div><div class="line">            &amp;.special</div><div class="line">              bg-image(&apos;special_1&apos;)</div><div class="line">          .text</div><div class="line">            line-height: 12px</div><div class="line">            font-size: 10px</div><div class="line"></div><div class="line">      .support-count</div><div class="line">        position: absolute</div><div class="line">        right: 12px</div><div class="line">        bottom: 14px</div><div class="line">        padding: 0 8px</div><div class="line">        height: 24px</div><div class="line">        line-height: 24px</div><div class="line">        border-radius: 14px</div><div class="line">        background: rgba(0, 0, 0, 0.2)</div><div class="line">        text-align: center</div><div class="line">        .count</div><div class="line">          vertical-align: top</div><div class="line">          font-size: 10px</div><div class="line">        .icon-keyboard_arrow_right</div><div class="line">          margin-left: 2px</div><div class="line">          line-height: 24px</div><div class="line">          font-size: 10px</div><div class="line"></div><div class="line">    .bulletin-wrapper</div><div class="line">      position: relative</div><div class="line">      height: 28px</div><div class="line">      line-height: 28px</div><div class="line">      padding: 0 22px 0 12px</div><div class="line">      white-space: nowrap</div><div class="line">      overflow: hidden</div><div class="line">      text-overflow: ellipsis</div><div class="line">      background: rgba(7, 17, 27, 0.2)</div><div class="line">      .bulletin-title</div><div class="line">        display: inline-block</div><div class="line">        vertical-align: top</div><div class="line">        margin-top: 8px</div><div class="line">        width: 22px</div><div class="line">        height: 12px</div><div class="line">        bg-image(&apos;bulletin&apos;)</div><div class="line">        background-size: 22px 12px</div><div class="line">        background-repeat: no-repeat</div><div class="line">      .bulletin-text</div><div class="line">        vertical-align: top</div><div class="line">        margin: 0 4px</div><div class="line">        font-size: 10px</div><div class="line">      .icon-keyboard_arrow_right</div><div class="line">        position: absolute</div><div class="line">        font-size: 10px</div><div class="line">        right: 12px</div><div class="line">        top: 8px</div><div class="line"></div><div class="line">    .background</div><div class="line">      position: absolute</div><div class="line">      top: 0</div><div class="line">      left: 0</div><div class="line">      width: 100%</div><div class="line">      height: 100%</div><div class="line">      z-index: -1</div><div class="line">      filter: blur(10px)</div><div class="line">    .detail</div><div class="line">      position: fixed</div><div class="line">      z-index: 100</div><div class="line">      top: 0</div><div class="line">      left: 0</div><div class="line">      width: 100%</div><div class="line">      height: 100%</div><div class="line">      overflow: auto</div><div class="line">      backdrop-filter: blur(10px)</div><div class="line">      opacity: 1</div><div class="line">      background: rgba(7, 17, 27, 0.8)</div><div class="line">      &amp;.fade-enter-active, &amp;.fade-leave-active</div><div class="line">        transition: all 0.5s</div><div class="line">      &amp;.fade-enter, &amp;.fade-leave-active</div><div class="line">        opacity: 0</div><div class="line">        background: rgba(7, 17, 27, 0)</div><div class="line">      .detail-wrapper</div><div class="line">        width: 100%</div><div class="line">        min-height: 100%</div><div class="line">        .detail-main</div><div class="line">          margin-top: 64px</div><div class="line">          padding-bottom: 64px</div><div class="line">          .name</div><div class="line">            line-height: 16px</div><div class="line">            text-align: center</div><div class="line">            font-size: 16px</div><div class="line">            font-weight: 700</div><div class="line">          .star-wrapper</div><div class="line">            margin-top: 18px</div><div class="line">            padding: 2px 0</div><div class="line">            text-align: center</div><div class="line">          .title</div><div class="line">            display: flex</div><div class="line">            width: 80%</div><div class="line">            margin: 28px auto 24px auto</div><div class="line">            .line</div><div class="line">              flex: 1</div><div class="line">              position: relative</div><div class="line">              top: -6px</div><div class="line">              border-bottom: 1px solid rgba(255, 255, 255, 0.2)</div><div class="line">            .text</div><div class="line">              padding: 0 12px</div><div class="line">              font-weight: 700</div><div class="line">              font-size: 14px</div><div class="line"></div><div class="line">          .supports</div><div class="line">            width: 80%</div><div class="line">            margin: 0 auto</div><div class="line">            .support-item</div><div class="line">              padding: 0 12px</div><div class="line">              margin-bottom: 12px</div><div class="line">              font-size: 0</div><div class="line">              &amp;:last-child</div><div class="line">                margin-bottom: 0</div><div class="line">              .icon</div><div class="line">                display: inline-block</div><div class="line">                width: 16px</div><div class="line">                height: 16px</div><div class="line">                vertical-align: top</div><div class="line">                margin-right: 6px</div><div class="line">                background-size: 16px 16px</div><div class="line">                background-repeat: no-repeat</div><div class="line">                &amp;.decrease</div><div class="line">                  bg-image(&apos;decrease_2&apos;)</div><div class="line">                &amp;.discount</div><div class="line">                  bg-image(&apos;discount_2&apos;)</div><div class="line">                &amp;.guarantee</div><div class="line">                  bg-image(&apos;guarantee_2&apos;)</div><div class="line">                &amp;.invoice</div><div class="line">                  bg-image(&apos;invoice_2&apos;)</div><div class="line">                &amp;.special</div><div class="line">                  bg-image(&apos;special_2&apos;)</div><div class="line">              .text</div><div class="line">                line-height: 16px</div><div class="line">                font-size: 12px</div><div class="line">          .bulletin</div><div class="line">            width: 80%</div><div class="line">            margin: 0 auto</div><div class="line">            .content</div><div class="line">              padding: 0 12px</div><div class="line">              line-height: 24px</div><div class="line">              font-size: 12px</div><div class="line">      .detail-close</div><div class="line">        position: relative</div><div class="line">        width: 32px</div><div class="line">        height: 32px</div><div class="line">        margin: -64px auto 0 auto</div><div class="line">        clear: both</div><div class="line">        font-size: 32px</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>关键点：</p>
+<ul>
+<li><p>引入组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import star from &apos;components/star/star&apos;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注册组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">components: &#123;</div><div class="line">      star</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>html中使用组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;star :size=&quot;48&quot; :score=&quot;seller.score&quot;&gt;&lt;/star&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-vue " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/08/26/关于vue的学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/26/关于vue的学习笔记/" itemprop="url">
+                  关于vue的实战笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T18:52:52+08:00">
+                2017-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/26/关于vue的学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/26/关于vue的学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div></pre></td><td class="code"><pre><div class="line">1.</div><div class="line">查看vue模板列表</div><div class="line">vue list</div><div class="line"></div><div class="line">2.</div><div class="line">利用脚手架安装基于webpack模板的vue项目基础代码</div><div class="line"></div><div class="line">vue  init webpack  sell</div><div class="line"></div><div class="line">3.</div><div class="line">安装依赖</div><div class="line"> </div><div class="line">cd sell</div><div class="line"></div><div class="line">npm intall   就是多了一个node_modules文件夹</div><div class="line"></div><div class="line">npm run dev</div><div class="line"></div><div class="line"></div><div class="line">4.</div><div class="line">代码规则</div><div class="line"></div><div class="line">http://eslint.org/docs/rules/indent</div><div class="line">https://github.com/standard/standard/blob/master/RULES.md#javascript-standard-style</div><div class="line"></div><div class="line">5.</div><div class="line">vue组件</div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div id=&quot;app&quot;&gt;</div><div class="line">            &lt;!-- 3. #app是Vue实例挂载的元素，应该在挂载元素范围内使用组件--&gt;</div><div class="line">            &lt;my-component&gt;&lt;/my-component&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">    &lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">    </div><div class="line">        // 1.创建一个组件构造器</div><div class="line">        var myComponent = Vue.extend(&#123;</div><div class="line">            template: &apos;&lt;div&gt;This is my first component!&lt;/div&gt;&apos;</div><div class="line">        &#125;)</div><div class="line">        </div><div class="line">        // 2.注册组件，并指定组件的标签，组件的HTML标签为&lt;my-component&gt;</div><div class="line">        Vue.component(&apos;my-component&apos;, myComponent)</div><div class="line">        </div><div class="line">        new Vue(&#123;</div><div class="line">            el: &apos;#app&apos;</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/html&gt;</div><div class="line"></div><div class="line"></div><div class="line">6.</div><div class="line">将svg文件转为图标字体</div><div class="line">https://icomoon.io/</div><div class="line"></div><div class="line">7.</div><div class="line">stylus语法没有花括号和分号</div><div class="line"></div><div class="line">8.</div><div class="line">mock数据模拟后台数据</div><div class="line">1）创建data.json（json数据）</div><div class="line">2）在bulid文件夹下的dev-server.js 编写接口请求</div><div class="line"></div><div class="line">http://localhost:8080/api/seller</div><div class="line"></div><div class="line">9.</div><div class="line">jsonview谷歌浏览器插件，json代码有缩进</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">10.</div><div class="line">vue-router  node.js基础一（慕课网 ）</div><div class="line"></div><div class="line">vue组件  </div><div class="line"></div><div class="line">express mock.js</div><div class="line"></div><div class="line">第5章 项目实战-页面骨架开发(更多视频教程关注微信公众号【菜鸟要飞】)  </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">11.</div><div class="line">vue-router</div><div class="line"></div><div class="line">https://router.vuejs.org/zh-cn/</div><div class="line"></div><div class="line">12.</div><div class="line">打开stylus、json、ES6语法高亮</div><div class="line">查看&gt;语法</div><div class="line"> View &gt; Syntax &gt; Open all with current extension as... &gt;stylus</div><div class="line"> View &gt; Syntax &gt; Open all with current extension as... &gt;javascript&gt;json</div><div class="line"> View &gt; Syntax &gt; Open all with current extension as... &gt;javascript&gt;javascript</div><div class="line"></div><div class="line">//SublimeLinter 对代码进行语法检查</div><div class="line">//npm install -g eslint babel-eslint</div><div class="line"></div><div class="line"></div><div class="line">13.</div><div class="line">基本模板</div><div class="line">D:\Sublime Text 3 优化版\Data\Packages\User\SublimeTmpl\templates</div><div class="line">D:\Sublime Text 3 优化版\Data\Packages\SublimeTmpl\templates</div><div class="line">ctrl+alt+h → html</div><div class="line">ctrl+alt+j → javascript</div><div class="line">ctrl+alt+c → css</div><div class="line">ctrl+alt+p → php</div><div class="line">ctrl+alt+r → ruby</div><div class="line">ctrl+alt+shift+p → python</div><div class="line"></div><div class="line">如果想要新建其他类型的文件模板的话，先自定义文件模板方在templates文件夹里，再分别打开Default (Windows).sublime-keymap、Default.sublime-commands、Main.sublime-menu、SublimeTmpl.sublime-settings这四个文件照着里面的格式自定义想要新建的类型</div><div class="line"></div><div class="line">14.</div><div class="line">安装stylus-loader</div><div class="line">1)在package.json中加入</div><div class="line">    &quot;stylus-loader&quot;: &quot;^2.1.1&quot;,</div><div class="line">2）再执行npm install</div><div class="line"></div><div class="line"></div><div class="line">14.</div><div class="line">weestorm快捷鍵</div><div class="line">ctrl+Y	删除一行</div><div class="line">ctrl+D	复制当前行</div><div class="line">ctrl+W	选中单词</div><div class="line">ctrl+alt+shif+L	格式化代码</div><div class="line">shift+enter	重新开始一行（无论光标在哪个位置）</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">15.</div><div class="line">出現以下错误</div><div class="line">Module build failed: Error: Cannot find module &apos;stylus&apos;</div><div class="line">at Function.Module._resolveFilename (module.js:470:15)</div><div class="line">at Function.Module._load (module.js:418:25)</div><div class="line">at Module.require (module.js:498:17)</div><div class="line">at require (internal/module.js:20:19)</div><div class="line">at Object. (D:\Vue\sell\node_modules.2.5.0@stylus-loader\index.js:2:14)</div><div class="line">at Module._compile (module.js:571:32)</div><div class="line">at Object.Module._extensions..js (module.js:580:10)</div><div class="line">at Module.load (module.js:488:32)</div><div class="line">at tryModuleLoad (module.js:447:12)</div><div class="line">at Function.Module._load (module.js:439:3)</div><div class="line">at Module.require (module.js:498:17)</div><div class="line">at require (internal/module.js:20:19)</div><div class="line">at loadLoader (D:\Vue\sell\node_modules.2.3.0@loader-runner\lib\loadLoader.js:13:17)</div><div class="line">at iteratePitchingLoaders (D:\Vue\sell\node_modules.2.3.0@loader-runner\lib\LoaderRunner.js:169:2)</div><div class="line">at iteratePitchingLoaders (D:\Vue\sell\node_modules.2.3.0@loader-runner\lib\LoaderRunner.js:165:10)</div><div class="line">at D:\Vue\sell\node_modules.2.3.0@loader-runner\lib\LoaderRunner.js:173:18</div><div class="line">@ ./~/.2.0.3@vue-style-loader!./~/.0.26.2@css-loader?&#123;&quot;minimize&quot;:false,&quot;sourceMap&quot;:false&#125;!./~/.11.1.3@vue-loader/lib/style-rewriter.js?&#123;&quot;id&quot;:&quot;data-v-6bc965e0&quot;,&quot;scoped&quot;:false,&quot;hasInlineConfig&quot;:false&#125;!./~/.2.5.0@stylus-loader?&#123;&quot;sourceMap&quot;:false&#125;!./~/.11.1.3@vue-loader/lib/selector.js?type=styles&amp;index=0!./src/components/header/header.vue 4:14-416 13:3-17:5 14:22-424</div><div class="line">@ ./src/components/header/header.vue</div><div class="line">@ ./~/.6.3.2@babel-loader/lib!./~/.11.1.3@vue-loader/lib/selector.js?type=script&amp;index=0!./src/App.vue</div><div class="line">@ ./src/App.vue</div><div class="line">@ ./src/main.js</div><div class="line">@ multi ./build/dev-client ./src/main.js</div><div class="line">原因：</div><div class="line">是因为需要安装stylus 再安装stylus-loader</div><div class="line"></div><div class="line">npm install stylus --save-dev</div><div class="line">npm install stylus-loader --save-dev</div><div class="line"></div><div class="line"></div><div class="line">16.</div><div class="line">组件名不可以和标签名同名</div><div class="line"></div><div class="line">17.mark</div><div class="line">flex布局-弹性布局</div><div class="line">http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</div><div class="line">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</div><div class="line">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</div><div class="line">#app</div><div class="line">  .tab</div><div class="line">    display: flex</div><div class="line">    width: 100%</div><div class="line">    height: 40px</div><div class="line">    line-height: 40px</div><div class="line">    .tab-item</div><div class="line">      flex: 1</div><div class="line">      text-align:center</div><div class="line"></div><div class="line">18.</div><div class="line">所有移动端的psd设计都是按实际两倍的设计的</div><div class="line">所以实际的高度为设计稿的一半</div><div class="line"></div><div class="line">19.css兼容问题 mark</div><div class="line">vue-loader依赖postcss插件搞定css兼容</div><div class="line"></div><div class="line">20.</div><div class="line">vue-router 2</div><div class="line">对于单页应用，官方提供了vue-router进行路由跳转的处理</div><div class="line">https://router.vuejs.org/zh-cn/</div><div class="line">https://gongph.gitbooks.io/vue-router-2/content/api/options.html</div><div class="line">1)安装 --save 会被配置到dependencies 生产</div><div class="line">npm install vue-router --save</div><div class="line"></div><div class="line">严格来说，应该到github上找最新的稳定版本安装</div><div class="line">https://github.com/vuejs/vue-router/blob/dev/package.json</div><div class="line">- 查看观官方package.json   &quot;version&quot;: &quot;2.7.0&quot;,   &quot;description&quot;: &quot;Official router for Vue.js 2&quot;,</div><div class="line"></div><div class="line">修改项目里面的package.json</div><div class="line">&quot;dependencies&quot;: &#123;</div><div class="line">    &quot;vue-router&quot;: &quot;^2.6.0&quot;</div><div class="line">  &#125;</div><div class="line">- 执行 npm install</div><div class="line"></div><div class="line">2）默认跳转路由路径</div><div class="line">&#123;path: &apos;*&apos;, redirect: &apos;goods&apos;&#125;</div><div class="line"></div><div class="line">21.</div><div class="line">如何打包上线</div><div class="line">npm run build</div><div class="line">22.</div><div class="line">// 跳过ESlint规则校验   因为在js中，使用new一个变量，是需要</div><div class="line">/* eslint-disable no-new */</div><div class="line"></div><div class="line">23.设置别名   components  ./components</div><div class="line">build 文件夹下webpack.base.conf.js</div><div class="line">resolve: &#123;</div><div class="line">    extensions: [&apos;.js&apos;, &apos;.vue&apos;, &apos;.json&apos;],</div><div class="line">    alias: &#123;</div><div class="line">      &apos;vue$&apos;: &apos;vue/dist/vue.esm.js&apos;,</div><div class="line">      &apos;@&apos;: resolve(&apos;src&apos;),</div><div class="line">      &apos;components&apos;:&apos;./components&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">24.移动端一像素边框  可能在移动端上就是两像素 dbr</div><div class="line">设备像素比devicePixelRatio简单介绍 http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/</div><div class="line">mixin.styl css预处理器提供的一个方法</div><div class="line">可以定义函数</div><div class="line"></div><div class="line"></div><div class="line">25.使用手机查看页面</div><div class="line">1）查看当前物理地址</div><div class="line"> ipconfig</div><div class="line"> 192.168.130.1</div><div class="line"></div><div class="line">2）草料二维码  http://cli.im/</div><div class="line">http://192.168.130.1:8080/</div><div class="line">保证你的手机和电脑在同一个局域网</div><div class="line"></div><div class="line">或者使用webstorm自带的</div><div class="line"></div><div class="line"></div><div class="line">26.</div><div class="line">vue-resource</div><div class="line">https://github.com/pagekit/vue-resource/blob/develop/README.md</div><div class="line">https://github.com/pagekit/vue-resource/blob/develop/docs/http.md</div><div class="line">vue-resource  Vue.js的插件提供了使用XMLHttpRequest或JSONP 进行Web请求和处理响应的服务。</div><div class="line"></div><div class="line">27.</div><div class="line">ESlint的修改在.eslintrc.js</div><div class="line"></div><div class="line">28.</div><div class="line">vue-resource插件使用</div><div class="line">1）main.js</div><div class="line">import VueResource from &apos;vue-resource&apos;;</div><div class="line">Vue.use(VueResource);</div><div class="line"></div><div class="line"></div><div class="line">29.</div><div class="line">mongodb</div><div class="line"></div><div class="line">30.</div><div class="line">todomvc</div><div class="line">https://github.com/tastejs/todomvc-app-template</div><div class="line">http://todomvc.com/examples/vue/</div><div class="line"></div><div class="line"></div><div class="line">npm install vue  --save-dev</div><div class="line"></div><div class="line"></div><div class="line">31.</div><div class="line">header.vue</div><div class="line">v-if=&quot;seller.supports&quot;</div><div class="line"></div><div class="line">异步加载数据，解决一开始为空报错</div><div class="line"></div><div class="line">32.</div><div class="line">消除空白字符--- 元素之间有间距</div><div class="line"></div><div class="line">设置父级</div><div class="line">font-size:0</div><div class="line"></div><div class="line"></div><div class="line">33.</div><div class="line">图片 2dbr 3dbr</div><div class="line">1)mixin.styl</div><div class="line">bg-image($url)</div><div class="line">    background-image:url($url+&quot;@2x.png&quot;)</div><div class="line">    @media(-webkit-device-pixel-ratio: 3),(min-device-aspect-ratio: 3)</div><div class="line">        background-image:url($url+&quot;@3x.png&quot;)</div><div class="line">2)</div><div class="line"></div><div class="line"></div><div class="line">34.</div><div class="line">inline-block会有默认的间距</div><div class="line">去除inline-block元素间间距的N种方法</div><div class="line">http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/</div><div class="line"></div><div class="line"></div><div class="line">35.</div><div class="line">Css Sticky footer布局</div><div class="line">&lt;div class=&quot;detail&quot; v-show=&quot;detailShow&quot;&gt;</div><div class="line">  &lt;div class=&quot;detail-wrapper clearfix&quot;&gt;</div><div class="line">    &lt;div class=&quot;detail-main&quot;&gt;</div><div class="line">      </div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;  </div><div class="line">  &lt;div class=&quot;detail-close&quot;&gt;</div><div class="line">    &lt;i class=&quot;icon-close&quot;&gt;&lt;/i&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt; </div><div class="line"></div><div class="line"></div><div class="line">.detail</div><div class="line">  position:fixed</div><div class="line">  z-index:100</div><div class="line">  top:0</div><div class="line">  left:0</div><div class="line">  width:100%</div><div class="line">  height:100%</div><div class="line">  overflow:auto</div><div class="line">  background-color:rgba(7,17,27,0.8)</div><div class="line">  .detail-wrapper</div><div class="line">    min-height:100%</div><div class="line">    .detail-main</div><div class="line">      margin-top:64px</div><div class="line">      padding-bottom:64px</div><div class="line">  .detail-close</div><div class="line">    position:relative</div><div class="line">    width:32px</div><div class="line">    height:32px</div><div class="line">    margin:-64px auto 0 auto</div><div class="line">    clear:both</div><div class="line">    font-size:32px</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">关键点</div><div class="line">  .detail-main</div><div class="line">    padding-bottom:64px</div><div class="line"></div><div class="line"></div><div class="line"> .detail-close</div><div class="line">    margin:-64px auto 0 auto</div><div class="line"></div><div class="line"></div><div class="line">36.</div><div class="line">当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用 “就地复用” 策略。如果数据项的顺序被改变，Vue将不是移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。这个类似 Vue 1.x 的 track-by=&quot;$index&quot; 。</div><div class="line">这个默认的模式是有效的，但是只适用于不依赖子组件状态或临时 DOM 状态（例如：表单输入值）的列表渲染输出。</div><div class="line">为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。理想的 key 值是每项都有唯一 id。这个特殊的属性相当于 Vue 1.x 的 track-by ，但它的工作方式类似于一个属性，所以你需要用 v-bind 来绑定动态值（在这里使用简写）：</div><div class="line">&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;</div><div class="line">  &lt;!-- 内容 --&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">建议尽可能使用 v-for 来提供 key ，除非迭代 DOM 内容足够简单，或者你是故意要依赖于默认行为来获得性能提升。</div><div class="line">因为它是 Vue 识别节点的一个通用机制， key 并不特别与 v-for 关联，key 还具有其他用途，我们将在后面的指南中看到其他用途。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">37.</div><div class="line">vue transition</div><div class="line"></div><div class="line">1)</div><div class="line">   &lt;transition name=&quot;detail&quot;&gt;</div><div class="line">         &lt;div class=&quot;detail&quot; v-show=&quot;detailShow&quot; transition=&quot;fade&quot;&gt;</div><div class="line">         &lt;/div&gt; </div><div class="line">       &lt;/transition&gt;  </div><div class="line"></div><div class="line"></div><div class="line">2)</div><div class="line">.detail</div><div class="line">  position:fixed</div><div class="line">  z-index:100</div><div class="line">  top:0</div><div class="line">  left:0</div><div class="line">  width:100%</div><div class="line">  height:100%</div><div class="line">  overflow:auto</div><div class="line">  transition:all 0.5s</div><div class="line">  opacity:1</div><div class="line">  background-color:rgba(7,17,27,0.8)</div><div class="line">  &amp;.detail-enter,&amp;.detail-leave-active</div><div class="line">    opacity:0</div><div class="line">    background-color:rgba(7,17,27,0)</div><div class="line"></div><div class="line">https://godbasin.github.io/2016/12/03/vue2-notes-5-transition-animation/</div><div class="line">https://cn.vuejs.org/v2/guide/transitions.html#同时使用-Transitions-和-Animations</div><div class="line"></div><div class="line">38.</div><div class="line">弹出层模糊效果 -- 只能在ios系统下实现</div><div class="line">backdrop-filter:blur(10px)</div><div class="line"></div><div class="line"></div><div class="line">39.</div><div class="line">垂直居中</div><div class="line">display:table</div><div class="line"></div><div class="line">40.</div><div class="line">webpack自动生成一串哈希值---去缓存</div><div class="line"></div><div class="line">vue-router2.0 </div><div class="line">vue-resource 2.0 作者已经不更新了 推荐使用 =&gt; axios</div><div class="line">transition 2.0</div><div class="line"></div><div class="line">41.页面滚动</div><div class="line">https://github.com/ustbhuangyi/better-scroll</div><div class="line"></div><div class="line">1)在package.json中，添加</div><div class="line">&quot;dependencies&quot;: &#123;</div><div class="line">  &quot;better-scroll&quot;:&quot;^0.4.0&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">2)</div><div class="line">npm install</div><div class="line"></div><div class="line">42.</div><div class="line"> 异步更新数据DOM   better-scroll</div><div class="line"> https://012-cn.vuejs.org/guide/best-practices.html#理解异步更新</div><div class="line"></div><div class="line"></div><div class="line">-1）实现滚动</div><div class="line">import BScroll from &apos;better-scroll&apos;</div><div class="line"></div><div class="line">new BScroll(document.getElementById(&apos;wrapper&apos;));</div><div class="line"></div><div class="line"></div><div class="line"> this.$nextTick(() =&gt; &#123;</div><div class="line">      this._initScroll();</div><div class="line"> &#125;);</div><div class="line"></div><div class="line"> -2）</div><div class="line"></div><div class="line"></div><div class="line"> 43.</div><div class="line"> // 在vue中，可以直接赋值不存在的对象，但是无法观察到变化</div><div class="line">解决这个问题</div><div class="line">    1)  在组件中，引入vue</div><div class="line">    import Vue from &apos;vue&apos;;</div><div class="line">    2)  通过以下方法，增加vue变量</div><div class="line">    Vue.set(this.food,&apos;count&apos;,1);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/07/18/nodejs笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/18/nodejs笔记/" itemprop="url">
+                  node.js
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T19:15:01+08:00">
+                2017-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/18/nodejs笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/18/nodejs笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="什么是node？"><a href="#什么是node？" class="headerlink" title="什么是node？"></a>什么是node？</h2><ul>
+<li>采用Google Chrome浏览器，V8引擎，由C++语言编写的，本质上是一个javascript运行环境。</li>
+<li>node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得到限制。</li>
+<li>还提供许多系统级别的API。 如文件的读写、进程的管理、网络通信等等。</li>
+</ul>
+<h2 id="为什么要学习node-js"><a href="#为什么要学习node-js" class="headerlink" title="为什么要学习node.js?"></a>为什么要学习node.js?</h2><ul>
+<li>很火，2009面世以来，nodejs快速的风靡全球。</li>
+<li>很多框架基于node.js ,例如 Node-Webkit  appjs  musicquiz  Jade Gist Yamr Grunt Express.js  gulp Nodecat Logg.io Hyro PDFKit haroopad NoduinoWeb Filsh Forever NodeOS Imdex 等等
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/18/nodejs笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-javascript " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/07/13/ES2015/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/13/ES2015/" itemprop="url">
+                  ECMAScript 6 -  ES2015
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T18:55:26+08:00">
+                2017-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/13/ES2015/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/13/ES2015/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="ECMAScript-6-ES2015-笔记"><a href="#ECMAScript-6-ES2015-笔记" class="headerlink" title="ECMAScript 6 -  ES2015 笔记"></a>ECMAScript 6 -  ES2015 笔记</h1><h2 id="ES6和Javascript-Jscript-actionscript的关系。"><a href="#ES6和Javascript-Jscript-actionscript的关系。" class="headerlink" title="ES6和Javascript  Jscript actionscript的关系。"></a>ES6和Javascript  Jscript actionscript的关系。</h2><ul>
+<li>ES6（是Javascript  Jscript actionscript的规范）</li>
+<li>Javascript  Jscript（微软自己开发，只在在IE浏览器生效。）</li>
+<li>actionscript（只在flash环境有效）是对ES6的实现。</li>
+<li>ES6是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</li>
+</ul>
+<h2 id="var和let的区别"><a href="#var和let的区别" class="headerlink" title="var和let的区别"></a>var和let的区别</h2><ul>
+<li>var申明的变量在代码块外面能被识别，但是let命令却不能被识别，这样就实现了js的块级作用域，我们在使用条件语句 循环语句等就会不担心变量污染的问题了</li>
+<li>用let重定义变量会抛出一个语法错误</li>
+<li>let是一个严格模式下的保留词。在非严格模式下，出于向后兼容的目的，你仍可以用let 命名来声明变量、函数和参数 确实可以编写var let=’q’;这样的代码！不过let let;无论如何都是非法的。</li>
+<li>let命令不存在变量提升</li>
+<li>let声明的全局变量不是全局对象的属性。这就意味着，你不可以通过window.变量名的方式访问这些变量。它们只存在于一个不可见的块的作用域中，这个块理论上是Web页面中运行的所有JS代码的外层块。</li>
+</ul>
+<h2 id="什么是变量（函数）提升"><a href="#什么是变量（函数）提升" class="headerlink" title="什么是变量（函数）提升"></a>什么是变量（函数）提升</h2><p>-在ES6之前，JavaScript没有块级作用域(一对花括号{}即为一个块级作用域)，只有全局作用域和函数作用域。变量提升即将变量（函数）声明提升到它所在作用域的最开始的部分,并不会把赋值也提升上来。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/13/ES2015/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-javascript " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/07/13/闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/13/闭包/" itemprop="url">
+                  闭包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T18:37:37+08:00">
+                2017-07-13
               </time>
             
 
@@ -364,8 +1031,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/11/实战/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/实战/" itemprop="commentCount"></span>
+                <a href="/2017/07/13/闭包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/13/闭包/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -393,7 +1060,18 @@
       
         
           
-            <p><img src="/images/avatar.jpg" width="200" controls></p>
+            <h2 id="什么叫闭包？"><a href="#什么叫闭包？" class="headerlink" title="什么叫闭包？"></a>什么叫闭包？</h2><p>​    在计算机科学中，<em>闭包</em>（英语：Closure），又稱词法<em>闭包</em>（Lexical Closure）或函數閉包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
+<li>在下面代码中，函数易用的是全局变量 i，形成了闭包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 闭包   var会提升变量</div><div class="line">var a=[];</div><div class="line">for(var i=0;i&lt;10;i++)&#123;</div><div class="line">	a[i]=function()&#123;</div><div class="line">		console.log(i);</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line">a[9]();//10</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
+<p>在浏览器中可以看到i是全局变量<br><img src="../images/contentImg/闭包.png" alt="../images/contentImg/闭包.png"><br><img src="../images/contentImg/闭包2.png" alt="../images/contentImg/闭包2.png"></p>
+<h2 id="消除闭包-let"><a href="#消除闭包-let" class="headerlink" title="消除闭包 let"></a>消除闭包 let</h2><ul>
+<li>let声明有局部块级作用域变量的作用。  每一个a[]绑定的时候，都生成了一个新的块级作用域 然后每一个i都不一样</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var b = [];</div><div class="line">for (let i = 0; i &lt; 10; i++) &#123;</div><div class="line">	b[i] = function() &#123;</div><div class="line">		console.log(i);</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(a[2]);</div><div class="line">b[2](); //2</div><div class="line">b[9](); //9</div><div class="line">console.log(b);</div></pre></td></tr></table></figure>
+<p><img src="../images/contentImg/let块级作用域.png" alt="../images/contentImg/let块级作用域.png"></p>
+<h2 id="疑点"><a href="#疑点" class="headerlink" title="疑点"></a>疑点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for (var j = 0; j &lt; 10; j++) &#123;</div><div class="line">	setTimeout(function(j) &#123;</div><div class="line">		console.log(j);</div><div class="line">	&#125;(j), 1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">for (var f = 0; f &lt; 10; f++) &#123;</div><div class="line">	setTimeout(function() &#123;</div><div class="line">		console.log(f);</div><div class="line">	&#125;(), 1000)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -433,8 +1111,8 @@
   
   
 
-  <article class="post post-type-photoshop " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/前端工程师必备的PS技能——切图篇/">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/07/10/用bootstrap搭建vivo官网笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mingming">
@@ -456,8 +1134,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/11/前端工程师必备的PS技能——切图篇/" itemprop="url">
-                  前端工程师必备的PS技能  基础篇
+                <a class="post-title-link" href="/2017/07/10/用bootstrap搭建vivo官网笔记/" itemprop="url">
+                  用bootstrap搭建vivo官网笔记
                 </a>
               
             
@@ -473,8 +1151,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T18:09:52+08:00">
+                2017-07-10
               </time>
             
 
@@ -496,8 +1174,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/photoshop/" itemprop="url" rel="index">
-                    <span itemprop="name">photoshop</span>
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
                   </a>
                 </span>
 
@@ -514,8 +1192,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/11/前端工程师必备的PS技能——切图篇/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/前端工程师必备的PS技能——切图篇/" itemprop="commentCount"></span>
+                <a href="/2017/07/10/用bootstrap搭建vivo官网笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/10/用bootstrap搭建vivo官网笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -542,10 +1220,14 @@
 
       
         
-          <h2 id="界面设置"><a href="#界面设置" class="headerlink" title="界面设置"></a>界面设置</h2><h3 id="新建文件设置"><a href="#新建文件设置" class="headerlink" title="新建文件设置"></a>新建文件设置</h3><p>(1)ctrl+n 新建文件<br>(2)设置文件参数如下（根据当前流行网页的参数设置）<br>预设：自定<br>宽度：1920 像素<br>高度：1080 像素<br>分辨：72 像素/英寸<br>颜色模式：RGB颜色  8位<br>背景内容：透明<br>(3)选择确定，新建文件；也可以选择存储为预设，方便以后使用时，不用再设置参数。<br>
+          <h2 id="vivo官网"><a href="#vivo官网" class="headerlink" title="vivo官网"></a>vivo官网</h2><ul>
+<li>最终的项目页面 <a href="https://github.com/mingmLiang/vivo">https://github.com/mingmLiang/vivo</a></li>
+</ul>
+<h2 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">transition: *property* *duration* *timing-function* *delay*;</div><div class="line"></div><div class="line">transition-property 规定设置过渡效果的 CSS 属性的名称。</div><div class="line"></div><div class="line">transition-duration  规定完成过渡效果需要多少秒或毫秒。</div><div class="line"></div><div class="line">transition-timing-function        规定速度效果的速度曲线。</div><div class="line"></div><div class="line">transition-delay        定义过渡效果何时开始。</div><div class="line"></div><div class="line">-webkit-transition: color .3scubic-bezier(.73, .03, .31, 1)</div><div class="line">-moz-transition: color .3scubic-bezier(.73, .03, .31, 1);</div><div class="line">transition: color .3s cubic-bezier(.73,.03, .31, 1);</div></pre></td></tr></table></figure>
+<p>贝塞尔曲线<strong> cubic-bezier</strong>   <a href="undefined"></a><a href="http://www.cnblogs.com/hsprout/p/5221955.html">http://www.cnblogs.com/hsprout/p/5221955.html</a></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/前端工程师必备的PS技能——切图篇/#more" rel="contents">
+            <a class="btn" href="/2017/07/10/用bootstrap搭建vivo官网笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -587,8 +1269,8 @@
   
   
 
-  <article class="post post-type-photoshop " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/使用Photoshop专业切图步骤/">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/05/07/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mingming">
@@ -610,8 +1292,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/11/使用Photoshop专业切图步骤/" itemprop="url">
-                  使Photoshop专业切图步骤
+                <a class="post-title-link" href="/2017/05/07/webpack/" itemprop="url">
+                  webpack笔记
                 </a>
               
             
@@ -627,8 +1309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T21:20:43+08:00">
+                2017-05-07
               </time>
             
 
@@ -650,8 +1332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/photoshop/" itemprop="url" rel="index">
-                    <span itemprop="name">photoshop</span>
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
                   </a>
                 </span>
 
@@ -668,8 +1350,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/11/使用Photoshop专业切图步骤/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/使用Photoshop专业切图步骤/" itemprop="commentCount"></span>
+                <a href="/2017/05/07/webpack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/07/webpack/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -697,166 +1379,48 @@
       
         
           
-            <p>1.用Photoshop打开psd文件<br>2.右键选中需要合并的图层<br>3.ctrl+e   合并图层<br>4.ctrl+点击图层列表中的图片  选中选区<br>5.ctrl+c  复制选区<br>6.ctrl+n  新建psd项目 （注意：图层的大小会根据已复制的内容的大小调整）<br>7.ctrl+v 粘贴选区<br>8.删除背景<br>9.文件-导出-存储为web所用格式 或者按快捷键（alt + shift + ctrl + s）<br>10.预设：png-24<br>   勾选透明度<br>   点击存储</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-zepto " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/zepto/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mingming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小白记事本">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/11/zepto/" itemprop="url">
-                  zepto（简化的javaScript库）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/框架/" itemprop="url" rel="index">
-                    <span itemprop="name">框架</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/11/zepto/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/zepto/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="注意：内容不完整，请留意官方网站。"><a href="#注意：内容不完整，请留意官方网站。" class="headerlink" title="注意：内容不完整，请留意官方网站。"></a>注意：内容不完整，请留意官方网站。</h2><ul>
-<li><p>zepto的API是大量参考jquery的API</p>
+            <h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h2><ul>
+<li><a href="https://github.com/webpack/webpack" target="_blank" rel="external">webpack的github网址</a></li>
+<li><a href="http://webpack.github.io/" target="_blank" rel="external">webpack 官网</a></li>
+</ul>
+<ul>
+<li><em>webpack</em>是用于现代JavaScript应用程序的<em>模块</em>绑定器。当Webpack处理您的应用程序时，它会递归地构建一个包含应用程序所需的每个模块的依赖<em>关系图</em>，然后将所有这些模块打包成少量浏览器加载的<em>软件包</em>（通常只有一个）。</li>
+</ul>
+<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p>npm install webpack -g</p>
+<p>npm install webpack -v<br>npm install webpack -h</p>
+<h2 id="webpack中文文档"><a href="#webpack中文文档" class="headerlink" title="webpack中文文档"></a>webpack中文文档</h2><p><a href="https://doc.webpack-china.org/" target="_blank" rel="external">https://doc.webpack-china.org/</a></p>
+<ul>
+<li>Webpack 中文指南</li>
+</ul>
+<p><a href="http://www.css88.com/doc/webpack2/configuration/plugins/" target="_blank" rel="external">http://www.css88.com/doc/webpack2/configuration/plugins/</a></p>
+<p><a href="http://www.jianshu.com/p/9e06d4e859ab" target="_blank" rel="external">http://www.jianshu.com/p/9e06d4e859ab</a></p>
+<h2 id="新建entry-js"><a href="#新建entry-js" class="headerlink" title="新建entry.js"></a>新建entry.js</h2><h2 id="运行-生成-bundle-js"><a href="#运行-生成-bundle-js" class="headerlink" title="运行 - 生成 bundle.js"></a>运行 - 生成 bundle.js</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack entry.js bundle.js</div></pre></td></tr></table></figure>
+<h2 id="安装加载器"><a href="#安装加载器" class="headerlink" title="安装加载器"></a>安装加载器</h2><p>npm install css-loader style-loader</p>
+<h2 id="新建style-css"><a href="#新建style-css" class="headerlink" title="新建style.css"></a>新建style.css</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">body&#123;</div><div class="line">	background-color: rgba(0,0,0,0.3);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="在entry-js中使用加载器"><a href="#在entry-js中使用加载器" class="headerlink" title="在entry.js中使用加载器"></a>在entry.js中使用加载器</h2><ul>
+<li>用css-loader读取style.css，再用style-loader把style.css插入页面中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&quot;!style-loader!css-loader!./style.css&quot;);</div></pre></td></tr></table></figure>
 </li>
-<li><p>zepto的优势<br>无缝接入和改造现有项目<br>更好的执行效率<br>比较轻量</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/zepto/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+</ul>
+<h2 id="使用配置文件webpack-config-js"><a href="#使用配置文件webpack-config-js" class="headerlink" title="使用配置文件webpack.config.js"></a>使用配置文件webpack.config.js</h2><ul>
+<li>在根目录下，新建webpack.config.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">const webpack = require(&apos;webpack&apos;); //载入一个webpack全局变量</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">	entry: &apos;./entry.js&apos;, //入口js文件</div><div class="line">	output: &#123;</div><div class="line">		filename: &apos;bundle.js&apos;, //输出的文件名</div><div class="line">		path: __dirname //输入的路径</div><div class="line">	&#125;,</div><div class="line">	module: &#123;</div><div class="line">		loaders: [</div><div class="line">			&#123;test: /\.css$/, loader: &apos;style-loader!css-loader&apos;&#125;</div><div class="line">		]</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：如果有报错- Cannot find module ‘webpack’</p>
+<p>1)当前目录是否有package.json<br>若没有则执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure></p>
+<p>2)查找node_modules文件夹是否有webpack文件夹<br>若没有则执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev webpack</div></pre></td></tr></table></figure></p>
+<h2 id="插件-在github或者官网找插件"><a href="#插件-在github或者官网找插件" class="headerlink" title="插件  在github或者官网找插件"></a>插件  在github或者官网找插件</h2><h3 id="新建插件"><a href="#新建插件" class="headerlink" title="新建插件"></a>新建插件</h3><p>1)修改 webpack.config.js，添加 plugins：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var webpack = require(&apos;webpack&apos;)</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">  entry: &apos;./entry.js&apos;,</div><div class="line">  output: &#123;</div><div class="line">    path: __dirname,</div><div class="line">    filename: &apos;bundle.js&apos;</div><div class="line">  &#125;,</div><div class="line">  module: &#123;</div><div class="line">    loaders: [</div><div class="line">      &#123;test: /\.css$/, loader: &apos;style-loader!css-loader&apos;&#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  plugins: [</div><div class="line">    new webpack.BannerPlugin(&apos;This file is created by mingming&apos;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2)运行 webpack，打开 bundle.js，可以看到文件头部出现了我们指定的注释信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*! This file is created by mingming */</div><div class="line">/******/ (function(modules) &#123; // webpackBootstrap</div><div class="line">/******/  // The module cache</div><div class="line">/******/  var installedModules = &#123;&#125;;</div><div class="line">// 后面代码省略</div></pre></td></tr></table></figure></p>
+<h3 id="引用插件-html-webpack-plugin"><a href="#引用插件-html-webpack-plugin" class="headerlink" title="引用插件  html-webpack-plugin"></a>引用插件  html-webpack-plugin</h3><ul>
+<li>自动生成html插件  -会在指定目录下生成一个index.html</li>
+</ul>
+<p>1)添加html-webpack-plugin插件到node_modules文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install html-webpack-plugin --save-dev</div></pre></td></tr></table></figure></p>
+<p>2)在webpack.config.js中，使用 html-webpack-plugin插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * @Author: admin</div><div class="line"> * @Date:   2017-07-17 13:43:20</div><div class="line"> * @Last Modified by:   admin</div><div class="line"> * @Last Modified time: 2017-07-17 16:18:10</div><div class="line"> */</div><div class="line"></div><div class="line">&apos;use strict&apos;;</div><div class="line">const webpack = require(&apos;webpack&apos;); //载入一个webpack全局变量</div><div class="line">const HtmlWebpackPlugin=require(&apos;html-webpack-plugin&apos;);//引入插件</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">	entry: &apos;./entry.js&apos;, //入口js文件</div><div class="line">	output: &#123;</div><div class="line">		filename: &apos;bundle.js&apos;, //输出的文件名</div><div class="line">		// path: path.resolve(__dirname, &apos;dist&apos;)</div><div class="line">		path: __dirname //输入的路径</div><div class="line">	&#125;,</div><div class="line">	module: &#123;</div><div class="line">		loaders: [&#123;</div><div class="line">			test: /\.css$/,</div><div class="line">			loader: &apos;style-loader!css-loader&apos;</div><div class="line">		&#125;]</div><div class="line">	&#125;,</div><div class="line">	plugins: [</div><div class="line">		new webpack.BannerPlugin(&apos;====这是张三创建的文件=====&apos;),</div><div class="line">		new HtmlWebpackPlugin(&#123;</div><div class="line">			&quot;title&quot;:&quot;使用插件生成html文件&quot;,</div><div class="line">			&quot;filename&quot;:&quot;assets/admin.html&quot;</div><div class="line">		&#125;)//使用插件</div><div class="line"></div><div class="line">	]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>3)执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack</div></pre></td></tr></table></figure></p>
+<ul>
+<li>生成了一个assets-admin.html</li>
+</ul>
+
+          
         
       
     </div>
@@ -894,8 +1458,8 @@
   
   
 
-  <article class="post post-type- php " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/php/">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/04/20/animate.css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mingming">
@@ -917,8 +1481,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/11/php/" itemprop="url">
-                  php基础篇
+                <a class="post-title-link" href="/2017/04/20/animate.css/" itemprop="url">
+                  jQuery Easing(jQuery插件)
                 </a>
               
             
@@ -934,8 +1498,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T17:18:52+08:00">
+                2017-04-20
               </time>
             
 
@@ -957,8 +1521,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
                   </a>
                 </span>
 
@@ -975,8 +1539,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/11/php/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/php/" itemprop="commentCount"></span>
+                <a href="/2017/04/20/animate.css/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/20/animate.css/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1003,10 +1567,13 @@
 
       
         
-          <h2 id="php定界符-可以写在页面的任意位置"><a href="#php定界符-可以写在页面的任意位置" class="headerlink" title="php定界符:可以写在页面的任意位置"></a>php定界符:可以写在页面的任意位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">1.标准定界符。 xml风格 常用</div><div class="line">&lt;?php</div><div class="line">php代码</div><div class="line">?&gt;</div><div class="line"></div><div class="line">2.短标记</div><div class="line">&lt;?</div><div class="line">php代码</div><div class="line">?&gt;	</div><div class="line"></div><div class="line">3.asp风格</div><div class="line">&lt;%</div><div class="line">php代码</div><div class="line">%&gt;</div><div class="line"></div><div class="line">4.script风格</div><div class="line">&lt;script language=&apos;php&apos;&gt;</div><div class="line">php代码</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+          <h2 id="下载animate-css"><a href="#下载animate-css" class="headerlink" title="下载animate.css"></a>下载animate.css</h2><ul>
+<li><a href="https://github.com/daneden/animate.css">animate.css的github地址</a> </li>
+<li><a href="https://daneden.github.io/animate.css/">animate.css官网</a></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/php/#more" rel="contents">
+            <a class="btn" href="/2017/04/20/animate.css/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1048,8 +1615,8 @@
   
   
 
-  <article class="post post-type-bootstrap " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/note重点/">
+  <article class="post post-type-vue.js " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/04/07/vue.js实战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mingming">
@@ -1071,8 +1638,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/11/note重点/" itemprop="url">
-                  微金所项目实战
+                <a class="post-title-link" href="/2017/04/07/vue.js实战/" itemprop="url">
+                  vue.js实战
                 </a>
               
             
@@ -1088,8 +1655,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T15:06:52+08:00">
+                2017-04-07
               </time>
             
 
@@ -1129,8 +1696,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/11/note重点/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/note重点/" itemprop="commentCount"></span>
+                <a href="/2017/04/07/vue.js实战/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/07/vue.js实战/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1157,640 +1724,185 @@
 
       
         
-          <h2 id="搭建Bootstrap页面骨架及项目目录结构"><a href="#搭建Bootstrap页面骨架及项目目录结构" class="headerlink" title="搭建Bootstrap页面骨架及项目目录结构"></a>搭建Bootstrap页面骨架及项目目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">├─ /weijinsuo/ ··················· 项目所在目录</div><div class="line">└─┬─ /css/ ······················· 我们自己的CSS文件</div><div class="line">  ├─ /font/ ······················ 使用到的字体文件</div><div class="line">  ├─ /img/ ······················· 使用到的图片文件</div><div class="line">  ├─ /js/ ························ 自己写的JS脚步</div><div class="line">  ├─ /lib/ ······················· 从第三方下载回来的库（只用不改）</div><div class="line">  ├─ /favicon.ico ················ 站点图标</div><div class="line">  └─ /index.html ················· 入口文件</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/note重点/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/markman安装(psd标注)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mingming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小白记事本">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/11/markman安装(psd标注)/" itemprop="url">
-                  markman安装须知(psd标注工具)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">other</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/11/markman安装(psd标注)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/markman安装(psd标注)/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>markman基于Adobe Air平台，所以首先安装Adobe Air平台
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/markman安装(psd标注)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type- less " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/less/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mingming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小白记事本">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/11/less/" itemprop="url">
-                  less（预处理css）（css语法的超集）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/less/" itemprop="url" rel="index">
-                    <span itemprop="name">less</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/11/less/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/less/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是-Less-？"><a href="#什么是-Less-？" class="headerlink" title="什么是 Less ？"></a>什么是 Less ？</h2><ul>
-<li>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</li>
-<li>Less 可以运行在 Node或浏览器端。注意：最终还是要转为css文件。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/less/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/js调试工具Console命令详解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mingming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小白记事本">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/11/js调试工具Console命令详解/" itemprop="url">
-                  js调试工具Console命令详解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">other</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/11/js调试工具Console命令详解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/js调试工具Console命令详解/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>用Chrome浏览器打开：Profiles</p>
-<p><a href="http://www.cnblogs.com/zhongxinWang/p/4121111.html">Chrome浏览器控制台的使用</a></p>
-<p><strong>(1)显示信息的命令</strong><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/js调试工具Console命令详解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/11/github以及git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mingming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小白记事本">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/11/github以及git/" itemprop="url">
-                  GitHub以及Git
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T15:25:13+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">other</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/11/github以及git/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/11/github以及git/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是Git？"><a href="#什么是Git？" class="headerlink" title="什么是Git？"></a>什么是Git？</h2><ul>
-<li>Git源代码管理工具</li>
-<li>版本控制工具 </li>
-<li>在一个项目中，凡是由开发系统编写的都是源代码</li>
-<li>让源代码可以被追溯，主要记录了每次变更了什么，谁主导这次的变化<br>体现了一种开源文化</li>
+          <h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ul>
+<li>外卖app</li>
 </ul>
-<h2 id="什么是GitHub？"><a href="#什么是GitHub？" class="headerlink" title="什么是GitHub？"></a>什么是GitHub？</h2><p><a href="https://github.com/">GitHub官网</a></p>
-<ul>
-<li>git提供商</li>
-<li>社交化编程</li>
-<li>便于协同合作，同步本地的代码仓库
+<h2 id="项目资源准备"><a href="#项目资源准备" class="headerlink" title="项目资源准备"></a>项目资源准备</h2><ul>
+<li><p>psd文件</p>
+</li>
+<li><p>Mark Man标注</p>
+</li>
+<li><p>photoshop切图（后期webpack打包）</p>
+</li>
+<li><p>svg文件</p>
+<p>​</p>
+</li>
+<li><p>vue-router</p>
+</li>
+<li><p>vue-resource</p>
+</li>
+<li><p>es6+elint  elint :es6代码风格检查工具 规范团队的代码风格</p>
+</li>
+<li><p>工程化 组件化 模块化</p>
+</li>
+<li><p>移动端常用开发技巧  flex弹性布局  css stickyfooter  酷炫的交互色剂</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/github以及git/#more" rel="contents">
+            <a class="btn" href="/2017/04/07/vue.js实战/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/19/实战须知/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/19/实战须知/" itemprop="url">
+                  常用的知识点
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T15:51:44+08:00">
+                2017-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/19/实战须知/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/19/实战须知/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="改变input中的placeholder的样式"><a href="#改变input中的placeholder的样式" class="headerlink" title="改变input中的placeholder的样式"></a>改变input中的placeholder的样式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">::-webkit-input-placeholder &#123;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">:-moz-placeholder &#123;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">::-moz-placeholder &#123;</div><div class="line">	/* Mozilla Firefox 19+ */</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">:-ms-input-placeholder &#123;</div><div class="line">	/* Internet Explorer 10+ */</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/19/实战须知/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1828,7 +1940,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1873,7 +1985,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1884,7 +1996,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

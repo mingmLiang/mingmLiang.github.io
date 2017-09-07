@@ -1,0 +1,1074 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="vue.js官网
+vue.js作者是中国人
+数据双向绑定
+组件的概念      可以把js\css\html写到一个后缀为.vue的vue文件里。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue.js(基础篇)">
+<meta property="og:url" content="https://mingmliang.github.io/2017/03/17/vue.js(基础篇)/index.html">
+<meta property="og:site_name" content="小白记事本">
+<meta property="og:description" content="vue.js官网
+vue.js作者是中国人
+数据双向绑定
+组件的概念      可以把js\css\html写到一个后缀为.vue的vue文件里。">
+<meta property="og:updated_time" content="2017-04-06T07:42:23.532Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue.js(基础篇)">
+<meta name="twitter:description" content="vue.js官网
+vue.js作者是中国人
+数据双向绑定
+组件的概念      可以把js\css\html写到一个后缀为.vue的vue文件里。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6315004888472356000',
+      author: '主编大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mingmliang.github.io/2017/03/17/vue.js(基础篇)/"/>
+
+
+
+
+
+  <title> vue.js(基础篇) | 小白记事本 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小白记事本</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-js " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/03/17/vue.js(基础篇)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vue.js(基础篇)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T11:58:00+08:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/17/vue.js(基础篇)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/vue.js(基础篇)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="vue-js官网"><a href="#vue-js官网" class="headerlink" title="vue.js官网"></a><a href="http://cn.vuejs.org/" target="_blank" rel="external">vue.js官网</a></h2><ul>
+<li>vue.js作者是中国人</li>
+<li>数据双向绑定</li>
+<li>组件的概念      可以把js\css\html写到一个后缀为.vue的vue文件里。<a id="more"></a>
+<h2 id="vue-js开发环境搭建"><a href="#vue-js开发环境搭建" class="headerlink" title="vue.js开发环境搭建"></a>vue.js开发环境搭建</h2>注意：搭建前首先要安装配置好node.js和git<h3 id="安装淘宝npm镜像cnpm"><a href="#安装淘宝npm镜像cnpm" class="headerlink" title="安装淘宝npm镜像cnpm"></a>安装<a href="http://npm.taobao.org/" target="_blank" rel="external">淘宝npm镜像</a>cnpm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line">cnpm -v</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --global vue-cli</div><div class="line">vue</div></pre></td></tr></table></figure>
+<h3 id="创建一个基于-webpack-模板的新项目"><a href="#创建一个基于-webpack-模板的新项目" class="headerlink" title="创建一个基于 webpack 模板的新项目"></a>创建一个基于 webpack 模板的新项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue init webpack my-project</div></pre></td></tr></table></figure>
+<p>注意;webpack 表示的是项目模板    my-project表示项目名称</p>
+<h3 id="加入所有依赖"><a href="#加入所有依赖" class="headerlink" title="加入所有依赖"></a>加入所有依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd my-project</div><div class="line">cnpm install</div></pre></td></tr></table></figure>
+<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure>
+<ul>
+<li>注意：通过<a href="http://localhost:8080/访问" target="_blank" rel="external">http://localhost:8080/访问</a></li>
+</ul>
+<h2 id="让sublime-text支持vue"><a href="#让sublime-text支持vue" class="headerlink" title="让sublime_text支持vue"></a>让sublime_text支持vue</h2><ul>
+<li>在Sublime里面调出package control  -  Install Package,搜索”Vue Syntax Highlight”,安装。</li>
+<li>稍等片刻，重新打开文件</li>
+<li>修改src文件夹下面的App.vue文件<h2 id="从-vue到页面"><a href="#从-vue到页面" class="headerlink" title="从.vue到页面"></a>从.vue到页面</h2></li>
+<li>通过webpack工具把.vue文件打包成html、css、js<h2 id="Vue-js组件重要选项"><a href="#Vue-js组件重要选项" class="headerlink" title="Vue.js组件重要选项"></a>Vue.js组件重要选项</h2></li>
+</ul>
+<h3 id="数据、方法、监听"><a href="#数据、方法、监听" class="headerlink" title="数据、方法、监听"></a>数据、方法、监听</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">	data:&#123;</div><div class="line">		a:1,</div><div class="line">		b:[]</div><div class="line">	&#125;,</div><div class="line">	methods:&#123;</div><div class="line">		dosomething:function()&#123;</div><div class="line">			this.a++</div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line">	watch:&#123; //监听a的变化</div><div class="line">		&apos;a&apos;:function(val,oldVal)&#123;</div><div class="line">			console.log(val,oldVal);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="数据渲染"><a href="#数据渲染" class="headerlink" title="数据渲染"></a>数据渲染</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;&#123;&#123;a&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;p v-text=&apos;a&apos;&gt;&lt;/p&gt;</div><div class="line">&lt;p v-html=&apos;a&apos;&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<h3 id="控制块隐藏-v-if直接不渲染DOM元素-v-show渲染了，只是隐藏了"><a href="#控制块隐藏-v-if直接不渲染DOM元素-v-show渲染了，只是隐藏了" class="headerlink" title="控制块隐藏(v-if直接不渲染DOM元素,v-show渲染了，只是隐藏了)"></a>控制块隐藏(v-if直接不渲染DOM元素,v-show渲染了，只是隐藏了)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;p v-if=&apos;isShow&apos;&gt;&lt;/p&gt;</div><div class="line">&lt;p v-show=&apos;isShow&apos;&gt;&lt;/p&gt;</div><div class="line">new Vue(&#123;</div><div class="line">	data:&#123;</div><div class="line">		isShow:true</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="渲染循环列表"><a href="#渲染循环列表" class="headerlink" title="渲染循环列表"></a>渲染循环列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li v-for=&apos;item in items&apos;&gt;</div><div class="line">			&lt;p v-text=&apos;item.label&apos;&gt;&lt;/p&gt;</div><div class="line">		&lt;/li&gt;</div><div class="line">	&lt;/ul&gt;</div><div class="line">	</div><div class="line">	</div><div class="line">new Vue(&#123;</div><div class="line">	data:&#123;</div><div class="line">		items:[</div><div class="line">  			&#123;</div><div class="line">  				label:&apos;apple&apos;</div><div class="line">			&#125;,</div><div class="line">			&#123;</div><div class="line">  				label:&apos;banana&apos;</div><div class="line">			&#125;</div><div class="line">		]</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="时间绑定"><a href="#时间绑定" class="headerlink" title="时间绑定"></a>时间绑定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;button v-on:click=&apos;doThis&apos;&gt;&lt;/button&gt;</div><div class="line">&lt;button @click=&apos;doThis&apos;&gt;&lt;/button&gt;</div><div class="line"></div><div class="line"></div><div class="line">methods:&#123;</div><div class="line">		doThis:function(something)&#123;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="绑定属性"><a href="#绑定属性" class="headerlink" title="绑定属性"></a>绑定属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;img v-bind:src=&apos;imageSrc&apos;&gt;</div><div class="line"></div><div class="line">&lt;div :class=&apos;&#123; red:isRed&#125;&apos;&gt;&lt;/div&gt;</div><div class="line">&lt;div :class=&apos;[classA,classB]&apos;&gt;&lt;/div&gt;</div><div class="line">&lt;div :class=&apos;[classA,&#123;classB:isB,classC:isC&#125;]&apos;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div v-for=&quot;item in items&quot;&gt;</div><div class="line">  &#123;&#123; item.text &#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="基础代码例子"><a href="#基础代码例子" class="headerlink" title="基础代码例子"></a>基础代码例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;img src=&quot;./assets/logo.png&quot;&gt;</div><div class="line">    &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;a&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;p v-text=&apos;a&apos;&gt;&lt;/p&gt;</div><div class="line">    &lt;p v-html=&apos;a&apos;&gt;&lt;/p&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">    &lt;!-- v-bind:class=&quot;[liClass,liClass2]&quot; --&gt;</div><div class="line">      &lt;li v-for=&apos;item in items&apos;  v-bind:class=&quot;&#123; finished: item.isFinished &#125;&quot;&gt;</div><div class="line">        &#123;&#123;item.label&#125;&#125;</div><div class="line">      &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  data:function()&#123;</div><div class="line">    return &#123;</div><div class="line">      a:&quot;&lt;h1&gt;mingming&lt;/h1&gt;&quot;,</div><div class="line">      title:&apos;this is a todo list&apos;,</div><div class="line">      items:[</div><div class="line">        &#123;</div><div class="line">          label:&apos;coding&apos;,</div><div class="line">          isFinished:false</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">          label:&apos;walking&apos;,</div><div class="line">          isFinished:true</div><div class="line">        &#125;</div><div class="line">      ],</div><div class="line">      liClass:&apos;thiiisLiClass&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line">.finished&#123;</div><div class="line">  text-decoration: underline;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h3 id="v-on事件绑定"><a href="#v-on事件绑定" class="headerlink" title="v-on事件绑定"></a>v-on事件绑定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;img src=&quot;./assets/logo.png&quot;&gt;</div><div class="line">    &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;p v-on:click=&quot;doThis&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">    &lt;!-- v-bind:class=&quot;[liClass,liClass2]&quot; --&gt;</div><div class="line">      &lt;li v-for=&apos;item in items&apos;  v-bind:class=&quot;&#123; finished: item.isFinished &#125;&quot;  v-on:click=&quot;toggleFinished(item)&quot;&gt;</div><div class="line">        &#123;&#123;item.label&#125;&#125;</div><div class="line">      &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  data:function()&#123;</div><div class="line">    return &#123;</div><div class="line">      title:&apos;this is a todo list&apos;,</div><div class="line">      items:[</div><div class="line">        &#123;</div><div class="line">          label:&apos;coding&apos;,</div><div class="line">          isFinished:false</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">          label:&apos;walking&apos;,</div><div class="line">          isFinished:true</div><div class="line">        &#125;</div><div class="line">      ],</div><div class="line">      liClass:&apos;thiiisLiClass&apos;,</div><div class="line">      doThis:function(event)&#123;</div><div class="line">        console.log(event);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">     toggleFinished:function(item)&#123;</div><div class="line">     item.isFinished=!item.isFinished;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line">.finished&#123;</div><div class="line">  text-decoration: underline;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h3 id="v-model数据双向绑定"><a href="#v-model数据双向绑定" class="headerlink" title="v-model数据双向绑定"></a>v-model数据双向绑定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;img src=&quot;./assets/logo.png&quot;&gt;</div><div class="line">    &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;input v-model=&quot;newItem&quot; placeholder=&quot;edit me&quot;&gt;</div><div class="line">    &lt;p&gt;Message is: &#123;&#123; newItem &#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  data:function()&#123;</div><div class="line">    return &#123;</div><div class="line">      newItem:&apos;&apos;</div><div class="line">   </div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line">.finished&#123;</div><div class="line">  text-decoration: underline;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h3 id="keyup-enter用户动态生成数据"><a href="#keyup-enter用户动态生成数据" class="headerlink" title="@keyup.enter用户动态生成数据"></a>@keyup.enter用户动态生成数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;img src=&quot;./assets/logo.png&quot;&gt;</div><div class="line">    &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;input v-model=&quot;newItem&quot; @keyup.enter=&quot;addNew&quot; placeholder=&quot;edit me&quot;&gt;</div><div class="line">    &lt;p&gt;Message is: &#123;&#123; newItem &#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">      &lt;li v-for=&apos;item in items&apos;  v-bind:class=&quot;&#123; finished: item.isFinished &#125;&quot; v-on:click=&quot;toggleFinished(item)&quot;&gt;</div><div class="line">        &#123;&#123;item.label&#125;&#125;</div><div class="line">      &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  data:function()&#123;</div><div class="line">    return &#123;</div><div class="line">      items:[</div><div class="line">        </div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">     addNew:function()&#123;</div><div class="line">      console.log(this.newItem);</div><div class="line"></div><div class="line">       this.items.push(&#123;</div><div class="line">         label:this.newItem,</div><div class="line">          isFinished:true</div><div class="line">       &#125;);</div><div class="line">       this.newItem=&apos;&apos;;</div><div class="line">     &#125;,</div><div class="line">      toggleFinished:function(item)&#123;</div><div class="line">     item.isFinished=!item.isFinished;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line">.finished&#123;</div><div class="line">  text-decoration: underline;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h3 id="使用localstorage来储存todolist"><a href="#使用localstorage来储存todolist" class="headerlink" title="使用localstorage来储存todolist"></a>使用localstorage来储存todolist</h3><ul>
+<li>导出两个方法 （在src文件夹下，添加store.js文件）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 导出两个方法</div><div class="line">// const ES6重定义变量的意思</div><div class="line">const STORAGE_KEY = &apos;todos-vuejs&apos;</div><div class="line">export default &#123;</div><div class="line">	fetch() &#123;</div><div class="line">			return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || &apos;[]&apos;);</div><div class="line">		&#125;,</div><div class="line">		save(items) &#123;</div><div class="line">			window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));</div><div class="line">		&#125;</div><div class="line">		// 相当于以下代码</div><div class="line">		// fetch: function() &#123;</div><div class="line">		// 		return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || &apos;[]&apos;);</div><div class="line">		// 	&#125;,</div><div class="line">		// 	save: function(items) &#123;</div><div class="line">		// 		window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));</div><div class="line">		// 	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在APP.vue中导入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;img src=&quot;./assets/logo.png&quot;&gt;</div><div class="line">    &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;input v-model=&quot;newItem&quot; @keyup.enter=&quot;addNew&quot; placeholder=&quot;edit me&quot;&gt;</div><div class="line">    &lt;p&gt;Message is: &#123;&#123; newItem &#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">      &lt;li v-for=&apos;item in items&apos;  v-bind:class=&quot;&#123; finished: item.isFinished &#125;&quot; v-on:click=&quot;toggleFinished(item)&quot;&gt;</div><div class="line">        &#123;&#123;item.label&#125;&#125;</div><div class="line">      &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">// import Store from &apos;./store.js&apos;</div><div class="line">// 导入</div><div class="line">import Store from &apos;./store&apos;</div><div class="line">console.log(Store);</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  data:function()&#123;</div><div class="line">    return &#123;</div><div class="line">      items: Store.fetch()</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  watch: &#123;</div><div class="line">     items: &#123;</div><div class="line">      handler: function (items) &#123;</div><div class="line">        // 调用(存数据)</div><div class="line">       Store.save(items)</div><div class="line">       &#125;,</div><div class="line">      // 为了发现对象内部值的变化，可以在选项参数中指定 deep: true 。注意监听数组的变动不需要这么做。</div><div class="line">      deep: true</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">     addNew:function()&#123;</div><div class="line">      console.log(this.newItem);</div><div class="line"></div><div class="line">       this.items.push(&#123;</div><div class="line">         label:this.newItem,</div><div class="line">          isFinished:true</div><div class="line">       &#125;);</div><div class="line">       this.newItem=&apos;&apos;;</div><div class="line">      </div><div class="line">     &#125;,</div><div class="line">      toggleFinished:function(item)&#123;</div><div class="line">     item.isFinished=!item.isFinished;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line">.finished&#123;</div><div class="line">  text-decoration: underline;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><h3 id="划分组件"><a href="#划分组件" class="headerlink" title="划分组件"></a>划分组件</h3><ul>
+<li>功能模块—— select、pagenation…</li>
+<li>页面区域——header、footer、sidebar…</li>
+</ul>
+<h3 id="组件的简单使用"><a href="#组件的简单使用" class="headerlink" title="组件的简单使用"></a>组件的简单使用</h3><ul>
+<li>在src-components文件夹下新建文件componentA.vue</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;hello&quot;&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</div><div class="line">    &lt;button v-on:click=&apos;onClickMe&apos;&gt;&lt;/button&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  data: function() &#123;</div><div class="line">    return &#123;</div><div class="line">      msg: &apos;hello from component a!&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">    onClickMe:function()&#123;</div><div class="line">      </div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</div><div class="line">&lt;style scoped&gt;</div><div class="line">h1&#123;</div><div class="line">  font-weight: normal;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>将组件引入到app.vue<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">&lt;!-- 3.渲染到页面(注意：两种写法都可以) --&gt;</div><div class="line">  &lt;componentA&gt;&lt;/componentA&gt;</div><div class="line">  &lt;component-a&gt;&lt;/component-a&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">// 1.导入</div><div class="line">// import componentA from &apos;./components/componentA.vue&apos;</div><div class="line">import componentA from &apos;./components/componentA&apos;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  // 2.注册</div><div class="line">  components:&#123;</div><div class="line">    componentA</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="父向子组件传参"><a href="#父向子组件传参" class="headerlink" title="父向子组件传参"></a>父向子组件传参</h3><ul>
+<li>App.vue</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;!-- 父组件传信息 --&gt;</div><div class="line">  &lt;component-a msgfromfather=&apos;you die!&apos;&gt;&lt;/component-a&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">import componentA from &apos;./components/componentA&apos;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  components:&#123;</div><div class="line">    componentA</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>componentA.vue<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;hello&quot;&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</div><div class="line">    &lt;!-- 3.获取父组件传来的信息 --&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123; msgfromfather &#125;&#125;&lt;/h1&gt;</div><div class="line">    &lt;button v-on:click=&apos;onClickMe&apos;&gt;onClickMe&lt;/button&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  data: function() &#123;</div><div class="line">    return &#123;</div><div class="line">      msg: &apos;hello from component a!&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  // 2.注册</div><div class="line">  props:[&apos;msgfromfather&apos;],</div><div class="line">  methods:&#123;</div><div class="line">    onClickMe:function()&#123;</div><div class="line">      // 3.获取父组件传来的信息</div><div class="line">      console.log(this.msgfromfather);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</div><div class="line">&lt;style scoped&gt;</div><div class="line">h1&#123;</div><div class="line">  font-weight: normal;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="子向父组件传信息"><a href="#子向父组件传信息" class="headerlink" title="子向父组件传信息"></a>子向父组件传信息</h3><h4 id="emit"><a href="#emit" class="headerlink" title="$emit"></a>$emit</h4><ul>
+<li><p>App.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;!-- 父组收信息 --&gt;</div><div class="line">  &lt;p&gt;child tells me:&#123;&#123;childWords&#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;component-a v-on:child-tell-me-something=&apos;listenToMyBoy&apos;&gt;&lt;/component-a&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">import componentA from &apos;./components/componentA&apos;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  data:function()&#123;</div><div class="line">    return&#123;</div><div class="line">      childWords:&apos;&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  components:&#123;</div><div class="line">    componentA</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">    listenToMyBoy:function(msg)&#123;</div><div class="line">      this.childWords=msg;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>componentA.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;hello&quot;&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</div><div class="line">    &lt;button v-on:click=&apos;onClickMe&apos;&gt;onClickMe&lt;/button&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  data: function() &#123;</div><div class="line">    return &#123;</div><div class="line">      msg: &apos;hello from component a!&apos;,</div><div class="line">      msg1:&apos;hello father&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">    onClickMe:function()&#123;</div><div class="line">      // 触发父组件的事件</div><div class="line">      this.$emit(&apos;child-tell-me-something&apos;,this.msg1);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</div><div class="line">&lt;style scoped&gt;</div><div class="line">h1&#123;</div><div class="line">  font-weight: normal;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="dispatch-和-broadcast-已经被弃用"><a href="#dispatch-和-broadcast-已经被弃用" class="headerlink" title="$dispatch 和 $broadcast 已经被弃用"></a><code>$dispatch</code> 和 <code>$broadcast</code> 已经被弃用</h4><ul>
+<li><p>App.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;!-- 父组收信息 --&gt;</div><div class="line">  &lt;p&gt;child tells me:&#123;&#123;childWords&#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;component-a&gt;&lt;/component-a&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">import componentA from &apos;./components/componentA&apos;</div><div class="line">export default &#123;</div><div class="line">  name: &apos;app&apos;,</div><div class="line">  data:function()&#123;</div><div class="line">    return&#123;</div><div class="line">      childWords:&apos;&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  components:&#123;</div><div class="line">    componentA</div><div class="line">  &#125;,</div><div class="line">  events:&#123;</div><div class="line">    &apos;child-tell-me-something&apos;:function(msg)&#123;</div><div class="line">      this.childWords=msg;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style&gt;</div><div class="line">#app &#123;</div><div class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">  text-align: center;</div><div class="line">  color: #2c3e50;</div><div class="line">  margin-top: 60px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>componentA.vue</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;hello&quot;&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</div><div class="line">    &lt;button v-on:click=&apos;onClickMe&apos;&gt;onClickMe&lt;/button&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  data: function() &#123;</div><div class="line">    return &#123;</div><div class="line">      msg: &apos;hello from component a!&apos;,</div><div class="line">      msg1:&apos;hello father&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods:&#123;</div><div class="line">    onClickMe:function()&#123;</div><div class="line">      // 触发父组件的事件</div><div class="line">      this.$dispatch(&apos;child-tell-me-something&apos;,this.msg1);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</div><div class="line">&lt;style scoped&gt;</div><div class="line">h1&#123;</div><div class="line">  font-weight: normal;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/vuejs" target="_blank" rel="external">https://github.com/vuejs</a></p>
+<p>脚手架工具<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">https://github.com/vuejs/vue-cli</a></p>
+<p>路由<a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">https://github.com/vuejs/vue-router</a></p>
+<p>开发工具 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">https://github.com/vuejs/vue-devtools</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/pay/WeChat.png" alt="mingming WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/pay/pay.png" alt="mingming Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/17/vue.js(进阶篇)/" rel="next" title="vue.js(进阶篇)">
+                <i class="fa fa-chevron-left"></i> vue.js(进阶篇)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/18/浏览器兼容/" rel="prev" title="浏览器兼容">
+                浏览器兼容 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/17/vue.js(基础篇)/"
+           data-title="vue.js(基础篇)" data-url="https://mingmliang.github.io/2017/03/17/vue.js(基础篇)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="mingming" />
+          <p class="site-author-name" itemprop="name">mingming</p>
+           
+              <p class="site-description motion-element" itemprop="description">梦想着飞翔！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.nowcoder.com/" title="牛客网" target="_blank">牛客网</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-js官网"><span class="nav-number">1.</span> <span class="nav-text">vue.js官网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-js开发环境搭建"><span class="nav-number">2.</span> <span class="nav-text">vue.js开发环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装淘宝npm镜像cnpm"><span class="nav-number">2.1.</span> <span class="nav-text">安装淘宝npm镜像cnpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局安装-vue-cli"><span class="nav-number">2.2.</span> <span class="nav-text">全局安装 vue-cli</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个基于-webpack-模板的新项目"><span class="nav-number">2.3.</span> <span class="nav-text">创建一个基于 webpack 模板的新项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入所有依赖"><span class="nav-number">2.4.</span> <span class="nav-text">加入所有依赖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行项目"><span class="nav-number">3.</span> <span class="nav-text">运行项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让sublime-text支持vue"><span class="nav-number">4.</span> <span class="nav-text">让sublime_text支持vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从-vue到页面"><span class="nav-number">5.</span> <span class="nav-text">从.vue到页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-js组件重要选项"><span class="nav-number">6.</span> <span class="nav-text">Vue.js组件重要选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据、方法、监听"><span class="nav-number">6.1.</span> <span class="nav-text">数据、方法、监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据渲染"><span class="nav-number">6.2.</span> <span class="nav-text">数据渲染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制块隐藏-v-if直接不渲染DOM元素-v-show渲染了，只是隐藏了"><span class="nav-number">6.3.</span> <span class="nav-text">控制块隐藏(v-if直接不渲染DOM元素,v-show渲染了，只是隐藏了)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染循环列表"><span class="nav-number">6.4.</span> <span class="nav-text">渲染循环列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间绑定"><span class="nav-number">6.5.</span> <span class="nav-text">时间绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定属性"><span class="nav-number">6.6.</span> <span class="nav-text">绑定属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-for"><span class="nav-number">6.7.</span> <span class="nav-text">v-for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础代码例子"><span class="nav-number">6.8.</span> <span class="nav-text">基础代码例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-on事件绑定"><span class="nav-number">6.9.</span> <span class="nav-text">v-on事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-model数据双向绑定"><span class="nav-number">6.10.</span> <span class="nav-text">v-model数据双向绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keyup-enter用户动态生成数据"><span class="nav-number">6.11.</span> <span class="nav-text">@keyup.enter用户动态生成数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用localstorage来储存todolist"><span class="nav-number">6.12.</span> <span class="nav-text">使用localstorage来储存todolist</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-number">7.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#划分组件"><span class="nav-number">7.1.</span> <span class="nav-text">划分组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件的简单使用"><span class="nav-number">7.2.</span> <span class="nav-text">组件的简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父向子组件传参"><span class="nav-number">7.3.</span> <span class="nav-text">父向子组件传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子向父组件传信息"><span class="nav-number">7.4.</span> <span class="nav-text">子向父组件传信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#emit"><span class="nav-number">7.4.1.</span> <span class="nav-text">$emit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dispatch-和-broadcast-已经被弃用"><span class="nav-number">7.4.2.</span> <span class="nav-text">$dispatch 和 $broadcast 已经被弃用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mingming</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mingmingblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
