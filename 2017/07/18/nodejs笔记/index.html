@@ -91,10 +91,11 @@
 采用Google Chrome浏览器，V8引擎，由C++语言编写的，本质上是一个javascript运行环境。
 node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得到限制。
 还提供许多系统级别的API。 如文件的读写、进程的管理、网络通信等等。
+不单是一个环境，还是一门语言
 
 为什么要学习node.js?
 很火，2009面世以来，nodejs快速的风靡全球。
-很多框架基于node.js ,例如 N">
+很多框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node.js">
 <meta property="og:url" content="https://mingmliang.github.io/2017/07/18/nodejs笔记/index.html">
@@ -103,21 +104,23 @@ node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得�
 采用Google Chrome浏览器，V8引擎，由C++语言编写的，本质上是一个javascript运行环境。
 node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得到限制。
 还提供许多系统级别的API。 如文件的读写、进程的管理、网络通信等等。
+不单是一个环境，还是一门语言
 
 为什么要学习node.js?
 很火，2009面世以来，nodejs快速的风靡全球。
-很多框架基于node.js ,例如 N">
-<meta property="og:updated_time" content="2017-07-18T14:33:18.199Z">
+很多框架">
+<meta property="og:updated_time" content="2017-09-18T14:33:58.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js">
 <meta name="twitter:description" content="什么是node？
 采用Google Chrome浏览器，V8引擎，由C++语言编写的，本质上是一个javascript运行环境。
 node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得到限制。
 还提供许多系统级别的API。 如文件的读写、进程的管理、网络通信等等。
+不单是一个环境，还是一门语言
 
 为什么要学习node.js?
 很火，2009面世以来，nodejs快速的风靡全球。
-很多框架基于node.js ,例如 N">
+很多框架">
 
 
 
@@ -412,10 +415,11 @@ node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得�
 <li>采用Google Chrome浏览器，V8引擎，由C++语言编写的，本质上是一个javascript运行环境。</li>
 <li>node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得到限制。</li>
 <li>还提供许多系统级别的API。 如文件的读写、进程的管理、网络通信等等。</li>
+<li>不单是一个环境，还是一门语言</li>
 </ul>
 <h2 id="为什么要学习node-js"><a href="#为什么要学习node-js" class="headerlink" title="为什么要学习node.js?"></a>为什么要学习node.js?</h2><ul>
 <li>很火，2009面世以来，nodejs快速的风靡全球。</li>
-<li>很多框架基于node.js ,例如 Node-Webkit  appjs  musicquiz  Jade Gist Yamr Grunt Express.js  gulp Nodecat Logg.io Hyro PDFKit haroopad NoduinoWeb Filsh Forever NodeOS Imdex 等等<a id="more"></a>
+<li>很多框架基于node.js ,例如 Node-Webkit  appjs  musicquiz  Jade Gist Yamr Grunt Express.js  gulp Nodecat Logg.io Hyro PDFKit haroopad NoduinoWeb Filsh Forever NodeOS Imdex 等等 <a id="more"></a>
 <h3 id="相关学习链接"><a href="#相关学习链接" class="headerlink" title="相关学习链接"></a>相关学习链接</h3><a href="https://www.npmjs.com/" target="_blank" rel="external">nodejs社区</a><br><a href="https://stackoverflow.com/" target="_blank" rel="external">全球技术交流平台</a></li>
 </ul>
 <h2 id="什么是稳定版本，什么是非稳定版本"><a href="#什么是稳定版本，什么是非稳定版本" class="headerlink" title="什么是稳定版本，什么是非稳定版本"></a>什么是稳定版本，什么是非稳定版本</h2><ul>
@@ -424,7 +428,7 @@ node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得�
 <h2 id="node-js启动web服务器"><a href="#node-js启动web服务器" class="headerlink" title="node.js启动web服务器"></a>node.js启动web服务器</h2><p><a href="https://nodejs.org/en/" target="_blank" rel="external">node.js官网</a></p>
 <ul>
 <li><p>在项目文件夹下，新建server.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">const http = require(&apos;http&apos;);</div><div class="line"></div><div class="line">const hostname = &apos;127.0.0.1&apos;;</div><div class="line">const port = 3000;</div><div class="line"></div><div class="line">const server = http.createServer((req, res) =&gt; &#123;</div><div class="line">  res.statusCode = 200;</div><div class="line">  res.setHeader(&apos;Content-Type&apos;, &apos;text/plain&apos;);</div><div class="line">  res.end(&apos;Hello World\n&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(port, hostname, () =&gt; &#123;</div><div class="line">  console.log(`Server running at http://$&#123;hostname&#125;:$&#123;port&#125;/`);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">const http = require(&apos;http&apos;);</div><div class="line"></div><div class="line">const hostname = &apos;127.0.0.1&apos;;</div><div class="line">const port = 3000;</div><div class="line"></div><div class="line">const server = http.createServer((req, res) =&gt; &#123;</div><div class="line">  res.statusCode = 200;</div><div class="line">  res.setHeader(&apos;Content-Type&apos;, &apos;text/plain&apos;);</div><div class="line">  // res.writeHead(200,&#123;&quot;Content-type&quot;:&quot;text/html;charset=UTF-8&quot;&#125;);</div><div class="line">  res.end(&apos;Hello World\n&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(port, hostname, () =&gt; &#123;</div><div class="line">  console.log(`Server running at http://$&#123;hostname&#125;:$&#123;port&#125;/`);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
 <li><p>启动web服务器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node server.js</div></pre></td></tr></table></figure>
@@ -612,7 +616,7 @@ node.js运行环境不仅仅可以解析js，并且没有浏览器安全级得�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
