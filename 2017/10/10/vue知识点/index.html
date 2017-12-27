@@ -93,7 +93,7 @@
 <meta property="og:url" content="https://mingmliang.github.io/2017/10/10/vue知识点/index.html">
 <meta property="og:site_name" content="小白记事本">
 <meta property="og:description" content="在data初始化之前,跨域获取相关数据(vue-resource)12345678910data:function()&amp;#123;  //jsonp 取到api提供的数据  this.$http.jsonp(&amp;quot;api&amp;quot;)  .then(res=&amp;gt;&amp;#123;  this.list=res.data&amp;#125;)return&amp;#123;  list:[]&amp;#125;&amp;#12">
-<meta property="og:updated_time" content="2017-10-10T16:41:12.429Z">
+<meta property="og:updated_time" content="2017-10-11T15:42:02.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue知识点 20171010">
 <meta name="twitter:description" content="在data初始化之前,跨域获取相关数据(vue-resource)12345678910data:function()&amp;#123;  //jsonp 取到api提供的数据  this.$http.jsonp(&amp;quot;api&amp;quot;)  .then(res=&amp;gt;&amp;#123;  this.list=res.data&amp;#125;)return&amp;#123;  list:[]&amp;#125;&amp;#12">
@@ -398,6 +398,12 @@
 </ul>
 <h3 id="router-link渲染标签tag"><a href="#router-link渲染标签tag" class="headerlink" title="router-link渲染标签tag"></a>router-link渲染标签tag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link tag=&quot;div&quot; to=&quot;&quot;&gt;</div></pre></td></tr></table></figure>
 <h3 id="组件使用中，书写规范须知–命名"><a href="#组件使用中，书写规范须知–命名" class="headerlink" title="组件使用中，书写规范须知–命名"></a>组件使用中，书写规范须知–命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;m-header&gt;&lt;/m-header&gt;</div><div class="line"></div><div class="line">import MHeader form &apos;...&apos;;</div><div class="line"></div><div class="line">compontents:&#123;MHeader&#125;</div></pre></td></tr></table></figure>
+<h3 id="vue-js中的slot标签"><a href="#vue-js中的slot标签" class="headerlink" title="vue.js中的slot标签"></a>vue.js中的slot标签</h3><ul>
+<li>会将组件被引用的时候，标签包含的元素渲染到其中</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;slider&quot; ref=&quot;slider&quot;&gt;</div><div class="line">    &lt;div class=&quot;slider-group&quot; ref=&quot;sliderGroup&quot;&gt;</div><div class="line">      &lt;!-- 会将组件被引用的时候，标签包含的元素渲染到其中 --&gt;</div><div class="line">      &lt;slot&gt;</div><div class="line">      &lt;/slot&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;dots&quot;&gt;</div><div class="line">      &lt;span class=&quot;dot&quot; :class=&quot;&#123;active: currentPageIndex === index &#125;&quot; v-for=&quot;(item, index) in dots&quot;&gt;&lt;/span&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="浏览器一般20ms刷新一次"><a href="#浏览器一般20ms刷新一次" class="headerlink" title="浏览器一般20ms刷新一次"></a>浏览器一般20ms刷新一次</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">mounted() &#123;</div><div class="line">  setTimeout(() =&gt; &#123;</div><div class="line">    this._setSliderWidth()</div><div class="line">    this._initDots()</div><div class="line">    this._initSlider()</div><div class="line"></div><div class="line">    if (this.autoPlay) &#123;</div><div class="line">      this._play()</div><div class="line">    &#125;</div><div class="line">  &#125;, 20)</div><div class="line"></div><div class="line">  window.addEventListener(&apos;resize&apos;, () =&gt; &#123;</div><div class="line">    if (!this.slider) &#123;</div><div class="line">      return</div><div class="line">    &#125;</div><div class="line">    this._setSliderWidth(true)</div><div class="line">    this.slider.refresh()</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -457,6 +463,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/11/vue巧用案例/" rel="prev" title="vue巧用案例">
+                vue巧用案例 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -558,7 +568,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -675,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在data初始化之前-跨域获取相关数据-vue-resource"><span class="nav-number">1.</span> <span class="nav-text">在data初始化之前,跨域获取相关数据(vue-resource)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用v-bind绑定元素属性值到data-不然初始又有data还没返回就会报错"><span class="nav-number">2.</span> <span class="nav-text">利用v-bind绑定元素属性值到data,不然初始又有data还没返回就会报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写调试接口"><span class="nav-number">3.</span> <span class="nav-text">编写调试接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不存在跨域的方式"><span class="nav-number">3.1.</span> <span class="nav-text">不存在跨域的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域的方式-抓取真实的线上数据"><span class="nav-number">3.2.</span> <span class="nav-text">跨域的方式(抓取真实的线上数据)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些依赖说明"><span class="nav-number">4.</span> <span class="nav-text">一些依赖说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">4.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体使用"><span class="nav-number">4.2.</span> <span class="nav-text">具体使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#router-link渲染标签tag"><span class="nav-number">5.</span> <span class="nav-text">router-link渲染标签tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件使用中，书写规范须知–命名"><span class="nav-number">6.</span> <span class="nav-text">组件使用中，书写规范须知–命名</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在data初始化之前-跨域获取相关数据-vue-resource"><span class="nav-number">1.</span> <span class="nav-text">在data初始化之前,跨域获取相关数据(vue-resource)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用v-bind绑定元素属性值到data-不然初始又有data还没返回就会报错"><span class="nav-number">2.</span> <span class="nav-text">利用v-bind绑定元素属性值到data,不然初始又有data还没返回就会报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写调试接口"><span class="nav-number">3.</span> <span class="nav-text">编写调试接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不存在跨域的方式"><span class="nav-number">3.1.</span> <span class="nav-text">不存在跨域的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域的方式-抓取真实的线上数据"><span class="nav-number">3.2.</span> <span class="nav-text">跨域的方式(抓取真实的线上数据)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些依赖说明"><span class="nav-number">4.</span> <span class="nav-text">一些依赖说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">4.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体使用"><span class="nav-number">4.2.</span> <span class="nav-text">具体使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#router-link渲染标签tag"><span class="nav-number">5.</span> <span class="nav-text">router-link渲染标签tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件使用中，书写规范须知–命名"><span class="nav-number">6.</span> <span class="nav-text">组件使用中，书写规范须知–命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-js中的slot标签"><span class="nav-number">7.</span> <span class="nav-text">vue.js中的slot标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器一般20ms刷新一次"><span class="nav-number">8.</span> <span class="nav-text">浏览器一般20ms刷新一次</span></a></li></ol></div>
             
 
           </div>
