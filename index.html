@@ -284,6 +284,163 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/12/29/设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mingming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白记事本">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/29/设计模式/" itemprop="url">
+                  设计模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T00:05:01+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/29/设计模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/29/设计模式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><ul>
+<li><p>特点</p>
+<p>又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象的实例。主要用来创建同一类对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 实例化对象来创建 --&gt;</div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">  &lt;title&gt;简单工厂模式&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  &lt;script&gt;  </div><div class="line">		var LoginAlert=function(text)&#123;</div><div class="line">			this.content=text;</div><div class="line">		&#125;</div><div class="line">		LoginAlert.prototype.show=function()&#123;</div><div class="line">			//显示警示框</div><div class="line">			console.log(&apos;显示警示框&apos;);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		var LoginConfirm=function(text)&#123;</div><div class="line">			this.content=text;</div><div class="line">		&#125;</div><div class="line">		LoginConfirm.prototype.show=function()&#123;</div><div class="line">			//显示确认框</div><div class="line">			console.log(&apos;显示确认框&apos;);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		var LoginPrompt=function(text)&#123;</div><div class="line">			this.content=text;</div><div class="line">		&#125;</div><div class="line">		LoginPrompt.prototype.show=function()&#123;</div><div class="line">			//显示提示框</div><div class="line">			console.log(&apos;显示提示框&apos;);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		var PopFactory=function(name)&#123;</div><div class="line">			switch(name)&#123;</div><div class="line">				case &apos;alert&apos;:</div><div class="line">					return new LoginAlert;</div><div class="line">				case &apos;confirm&apos;:</div><div class="line">					return new LoginConfirm;</div><div class="line">				case &apos;promppt&apos;:</div><div class="line">					return new LoginPrompt;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">      // 调用</div><div class="line">      var userNameAlert=PopFactory(&apos;alert&apos;,&apos;hahhaha&apos;);</div><div class="line">      var userNameConfirm=PopFactory(&apos;confirm&apos;,&apos;hahhaha&apos;);</div><div class="line">      userNameAlert.show();</div><div class="line">      userNameConfirm.show();</div><div class="line">      console.log(userNameAlert===userNameConfirm);</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 创建一个新对象，包装增强其属性和功能来实现 --&gt;</div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">  &lt;title&gt;简单工厂模式&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  &lt;script&gt;  </div><div class="line">  	function createPop(type,text)&#123;</div><div class="line">        var o=new Object;</div><div class="line">        o.content=text;</div><div class="line">        o.show=function()&#123;</div><div class="line">          //显示方法</div><div class="line">          </div><div class="line">        &#125;;</div><div class="line">        if(type===&apos;alert&apos;)&#123;</div><div class="line">          console.log(&apos;alert&apos;);</div><div class="line">        &#125;</div><div class="line">        if(type===&apos;prompt&apos;)&#123;</div><div class="line">          console.log(&apos;prompt&apos;);</div><div class="line">        &#125;</div><div class="line">        if(type===&apos;confirm&apos;)&#123;</div><div class="line">          console.log(&apos;confirm&apos;);</div><div class="line">        &#125;</div><div class="line">        return o;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      // 调用</div><div class="line">      var userNameAlert=createPop(&apos;alert&apos;,&apos;hahhaha&apos;);</div><div class="line">      var userNameConfirm=createPop(&apos;confirm&apos;,&apos;hahhaha&apos;);</div><div class="line">      console.log(userNameAlert===userNameConfirm);</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/12/27/封装插件案例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1670,164 +1827,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingmliang.github.io/2017/07/10/用bootstrap搭建vivo官网笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mingming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小白记事本">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/10/用bootstrap搭建vivo官网笔记/" itemprop="url">
-                  用bootstrap搭建vivo官网笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T18:09:52+08:00">
-                2017-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">other</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/10/用bootstrap搭建vivo官网笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/10/用bootstrap搭建vivo官网笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="vivo官网"><a href="#vivo官网" class="headerlink" title="vivo官网"></a>vivo官网</h2><ul>
-<li>最终的项目页面 <a href="https://github.com/mingmLiang/vivo">https://github.com/mingmLiang/vivo</a></li>
-</ul>
-<h2 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">transition: *property* *duration* *timing-function* *delay*;</div><div class="line"></div><div class="line">transition-property 规定设置过渡效果的 CSS 属性的名称。</div><div class="line"></div><div class="line">transition-duration  规定完成过渡效果需要多少秒或毫秒。</div><div class="line"></div><div class="line">transition-timing-function        规定速度效果的速度曲线。</div><div class="line"></div><div class="line">transition-delay        定义过渡效果何时开始。</div><div class="line"></div><div class="line">-webkit-transition: color .3scubic-bezier(.73, .03, .31, 1)</div><div class="line">-moz-transition: color .3scubic-bezier(.73, .03, .31, 1);</div><div class="line">transition: color .3s cubic-bezier(.73,.03, .31, 1);</div></pre></td></tr></table></figure>
-<p>贝塞尔曲线<strong> cubic-bezier</strong>   <a href="undefined"></a><a href="http://www.cnblogs.com/hsprout/p/5221955.html">http://www.cnblogs.com/hsprout/p/5221955.html</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/10/用bootstrap搭建vivo官网笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1877,7 +1876,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
